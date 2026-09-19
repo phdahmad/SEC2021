@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="موقع تفاعلي لمقرر SEC2021 مقدمة في الحوسبة والبرمجة الحاسوبية — جامعة أم القرى">
+<meta name="color-scheme" content="light dark">
+<title>SEC2021 — مقدمة في الحوسبة والبرمجة الحاسوبية</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <div class="brand">
+      <span class="code">SEC2021</span>
+      <span class="name" id="brandName">مقدمة في الحوسبة والبرمجة الحاسوبية</span>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-ghost btn-sm" id="langBtn" type="button">English</button>
+      <button class="btn btn-ghost btn-sm" id="themeBtn" type="button" aria-live="polite">
+        <span id="themeIcon" aria-hidden="true">◐</span><span id="themeLabel">ليلي</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="overall">
+  <div class="overall-inner">
+    <span id="progLabel">التقدم</span>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progBarWrap">
+      <span id="progBar"></span>
+    </div>
+    <span id="progPct" class="num">0%</span>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="فهرس المقرر"></nav>
+  <main class="content" id="view" tabindex="-1"></main>
+</div>
+
+<footer class="site">
+  <p id="footText">SEC2021 — جامعة أم القرى · إعداد وإشراف علمي: د. أحمد الهندي · رخصة CC BY 4.0</p>
+</footer>
+
+<script src="content.js"></script>
+<script src="quizzes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
