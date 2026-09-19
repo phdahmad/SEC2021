@@ -32,6 +32,7 @@ const UI = {
   printMod:        { ar: "طباعة الموديول",      en: "Print module" },
   zoomHint:        { ar: "اضغط الصورة لتكبيرها",  en: "Tap the image to enlarge" },
   closeImg:        { ar: "إغلاق الصورة",          en: "Close image" },
+  toTop:           { ar: "العودة إلى الأعلى",     en: "Back to top" },
   next:            { ar: "التالي",              en: "Next" },
   prev:            { ar: "السابق",              en: "Previous" },
   soon:            { ar: "قيد الإعداد",         en: "In preparation" },
@@ -126,6 +127,7 @@ function applyLang() {
   $("#footText").textContent = t("footer");
   $("#sidebar").setAttribute("aria-label", t("contents"));
   $("#aboutLabel").textContent = t("about");
+  $("#toTop").setAttribute("aria-label", t("toTop"));
   $("#aboutBtn").setAttribute("aria-label", t("about"));
   applyThemeLabel();
 }
@@ -485,6 +487,15 @@ function init() {
     saveState();
     applyTheme();
   });
+
+  const toTop = $("#toTop");
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    $("#view").focus({ preventScroll: true });
+  });
+  window.addEventListener("scroll", function () {
+    toTop.classList.toggle("show", window.scrollY > 700);
+  }, { passive: true });
 
   window.addEventListener("hashchange", route);
   route();

@@ -475,6 +475,41 @@ html[data-theme="dark"] .fig img{filter:brightness(.94)}
 }
 @media print{ .lightbox{display:none!important} .fig img{break-inside:avoid} }
 
+
+/* ===================== تحسينات الشاشات الصغيرة ===================== */
+@media (max-width:700px){
+  /* الضبط للحافتين يصنع فجوات قبيحة في عمود ضيق */
+  html[lang="ar"] .section p,html[lang="ar"] .hero p,html[lang="ar"] .box p{text-align:start}
+  body{font-size:16px;line-height:1.85}
+  .header-row{padding:8px var(--gap)}
+  .btn-sm{min-height:40px;padding:6px 12px}
+  .overall{padding:4px var(--gap) 8px}
+  .nav-wrap > summary{min-block-size:36px;padding:4px 2px}
+  .sidebar{padding:10px 12px}
+  .hero .meta .chip{font-size:.76rem;padding:4px 10px}
+}
+
+/* إشارة مرئية إلى إمكانية تكبير الصورة */
+/* تلميح التكبير في سطر التعليق حتى لا يحجب شيئاً من الصورة */
+.fig figcaption::after{
+  display:block;inline-size:fit-content;margin-block-start:6px;padding:3px 10px;
+  border:1px solid var(--line);border-radius:999px;
+  font-size:.72rem;color:var(--muted);white-space:nowrap;
+}
+html[lang="ar"] .fig figcaption::after{content:"⤢ اضغط للتكبير"}
+html[lang="en"] .fig figcaption::after{content:"⤢ Tap to enlarge"}
+
+/* زر العودة إلى الأعلى */
+#toTop{
+  position:fixed;inset-block-end:16px;inset-inline-end:16px;z-index:50;
+  inline-size:46px;block-size:46px;border-radius:50%;cursor:pointer;
+  background:var(--ink);color:#fff;border:1px solid var(--ink-deep);
+  font-size:1.1rem;display:none;place-items:center;box-shadow:0 2px 8px rgba(14,35,64,.28);
+}
+html[data-theme="dark"] #toTop{color:#0E1926}
+#toTop.show{display:grid}
+@media print{ .fig figcaption::after{display:none} #toTop{display:none!important} }
+
 /* ===================== الطباعة ===================== */
 @media print{
   .site-header,.overall,.sidebar,.sec-foot,.pager,.btn,.opts,.quiz .score{display:none!important}
