@@ -15,6 +15,14 @@ const COURSE = {
     ar: "بكالوريوس المعلوماتية الصحية — كلية الصحة العامة والمعلوماتية الصحية، جامعة أم القرى",
     en: "Bachelor of Health Informatics — College of Public Health and Health Informatics, Umm Al-Qura University"
   },
+  author: {
+    ar: "د. أحمد الهندي",
+    en: "Dr. Ahmad Al-Hindi"
+  },
+  authorRole: {
+    ar: "أستاذ مشارك، قسم علوم الحاسب والذكاء الاصطناعي — كلية الحاسبات، جامعة أم القرى",
+    en: "Associate Professor, Department of Computer Science and Artificial Intelligence — College of Computing, Umm Al-Qura University"
+  },
   lede: {
     ar: "ثلاث ساعات معتمدة: ساعتان نظري وساعة عملي. القسم الأول يبني فهمك لجهاز الحاسب وبرمجياته ونظام تشغيله، والقسم الثاني يعلّمك البرمجة بلغة بايثون لحل المشكلات. المقرر لا يفترض أي معرفة سابقة.",
     en: "Three credit hours: two theory, one practical. The first half builds your understanding of the computer, its software, and its operating system. The second half teaches you Python programming for problem solving. The course assumes no prior knowledge."
@@ -34,8 +42,8 @@ const COURSE = {
     { ar: "Python Crash Course — Eric Matthes، الطبعة 3، 2023 (مرجع مساند)", en: "Python Crash Course — Eric Matthes, 3rd ed., 2023 (supportive)" }
   ],
   about: {
-    ar: "<p>هذا الموقع مادة مساندة لمقرر SEC2021 في جامعة أم القرى، مبني على توصيف المقرر المعتمد: مخرجات التعلم، والموضوعات، وساعات الاتصال، والمراجع العلمية.</p><p><strong>إعداد وإشراف علمي:</strong> د. أحمد الهندي، أستاذ مشارك، قسم علوم الحاسب والذكاء الاصطناعي، كلية الحاسبات، جامعة أم القرى.</p><p><strong>تطوير المحتوى:</strong> أُنجز بمساعدة الذكاء الاصطناعي تحت إشراف علمي ومراجعة بشرية.</p><p><strong>الرخصة:</strong> منشور تحت رخصة المشاع الإبداعي — النسب للمؤلف 4.0 الدولية (CC BY 4.0). لك أن تنسخه وتعدّله وتعيد نشره بشرط نسبه إلى مصدره.</p>",
-    en: "<p>This site is supplementary material for course SEC2021 at Umm Al-Qura University. It is built on the approved course specification: learning outcomes, topics, contact hours, and academic references.</p><p><strong>Prepared and academically supervised by:</strong> Dr. Ahmad Al-Hindi, Associate Professor, Department of Computer Science and Artificial Intelligence, College of Computing, Umm Al-Qura University.</p><p><strong>Content development:</strong> produced with the help of artificial intelligence under academic supervision and human review.</p><p><strong>Licence:</strong> published under Creative Commons Attribution 4.0 International (CC BY 4.0). You may copy, adapt, and republish it as long as you credit the source.</p>"
+    ar: "<p>هذا الموقع مادة مساندة لمقرر SEC2021 في جامعة أم القرى، مبني على توصيف المقرر المعتمد: مخرجات التعلم، والموضوعات، وساعات الاتصال، والمراجع العلمية.</p><div class=\"box define\"><span class=\"label\">إعداد وإشراف علمي</span><p style=\"font-size:1.05rem\"><strong>د. أحمد الهندي</strong><br>أستاذ مشارك، قسم علوم الحاسب والذكاء الاصطناعي<br>كلية الحاسبات، جامعة أم القرى — مكة المكرمة</p></div><p><strong>تطوير المحتوى:</strong> أُنجز بمساعدة الذكاء الاصطناعي تحت إشراف علمي ومراجعة بشرية.</p><p><strong>الرخصة:</strong> منشور تحت رخصة المشاع الإبداعي — النسب للمؤلف 4.0 الدولية (CC BY 4.0). لك أن تنسخه وتعدّله وتعيد نشره بشرط نسبه إلى مصدره.</p><div class=\"box recall\"><span class=\"label\">للاقتباس من هذه المادة</span><p class=\"ltr\" style=\"font-family:var(--font-lat)\">Al-Hindi, A. (2026). <em>SEC2021: Introduction to Computing and Computer Programming</em> [Course website]. Umm Al-Qura University. CC BY 4.0</p></div>",
+    en: "<p>This site is supplementary material for course SEC2021 at Umm Al-Qura University. It is built on the approved course specification: learning outcomes, topics, contact hours, and academic references.</p><div class=\"box define\"><span class=\"label\">Prepared and academically supervised by</span><p style=\"font-size:1.05rem\"><strong>Dr. Ahmad Al-Hindi</strong><br>Associate Professor, Department of Computer Science and Artificial Intelligence<br>College of Computing, Umm Al-Qura University — Makkah</p></div><p><strong>Content development:</strong> produced with the help of artificial intelligence under academic supervision and human review.</p><p><strong>Licence:</strong> published under Creative Commons Attribution 4.0 International (CC BY 4.0). You may copy, adapt, and republish it as long as you credit the source.</p><div class=\"box recall\"><span class=\"label\">How to cite this material</span><p class=\"ltr\">Al-Hindi, A. (2026). <em>SEC2021: Introduction to Computing and Computer Programming</em> [Course website]. Umm Al-Qura University. CC BY 4.0</p></div>"
   }
 };
 

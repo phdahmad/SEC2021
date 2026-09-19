@@ -112,7 +112,16 @@ html[data-theme="dark"] .brand .code{color:var(--amber)}
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 html[lang="en"] .brand .name{font-family:var(--font-lat)}
 html[data-theme="dark"] .brand .name{color:var(--text)}
-.header-actions{display:flex;gap:8px;margin-inline-start:auto}
+.header-actions{display:flex;gap:8px;margin-inline-start:auto;flex:none}
+#aboutBtn{text-decoration:none}
+#aboutBtn.is-on{background:var(--amber-bright);color:#16202E;border-color:var(--amber-bright)}
+/* على الشاشات الضيقة: أيقونة فقط، واسم المقرر يختفي ليتسع الشريط */
+@media (max-width:620px){
+  #aboutBtn .lbl{display:none}
+}
+@media (max-width:520px){
+  .brand .name{display:none}
+}
 
 .btn{
   font:inherit;font-size:.9rem;
@@ -199,6 +208,19 @@ html[dir="rtl"] .nav-mod a.active{box-shadow:inset -3px 0 0 var(--amber-bright)}
 .nav-sub a{font-size:.85rem;color:var(--muted);padding:5px 8px}
 .nav-sub a.current{color:var(--ink-deep);font-weight:700;background:var(--panel)}
 
+/* ذيل القائمة الجانبية: روابط الموقع لا محتوى المقرر */
+.nav-extra{
+  margin-block-start:12px;padding-block-start:12px;border-block-start:1px solid var(--line);
+  display:flex;flex-direction:column;gap:8px;
+}
+.nav-about{
+  display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--muted);
+  font-size:.9rem;padding:9px 10px;border-radius:8px;min-block-size:40px;
+}
+.nav-about:hover{background:var(--panel);color:var(--text)}
+.nav-about.current{background:var(--panel);color:var(--ink-deep);font-weight:700}
+.nav-extra .btn{justify-content:center}
+
 /* ===================== المحتوى ===================== */
 .content{min-width:0}
 .page-head{margin-block-end:22px}
@@ -214,12 +236,23 @@ html[dir="rtl"] .nav-mod a.active{box-shadow:inset -3px 0 0 var(--amber-bright)}
 .hero p{max-inline-size:var(--measure);color:var(--text)}
 /* الضبط للحافتين في الفقرات العربية الطويلة فقط */
 html[lang="ar"] .section p,html[lang="ar"] .hero p,html[lang="ar"] .box p{text-align:justify;text-justify:inter-word}
+html[lang="ar"] p.ltr,html[lang="ar"] .byline p{text-align:left}
 .hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-block-start:16px}
 .chip{
   font-size:.8rem;padding:5px 12px;border-radius:999px;
   background:var(--panel);color:var(--ink-deep);border:1px solid var(--line);
 }
 .chip.amber{background:transparent;border-color:var(--amber);color:var(--amber)}
+
+.byline{
+  margin-block-start:16px;padding-inline-start:14px;
+  border-inline-start:3px solid var(--amber-bright);
+  display:flex;flex-direction:column;gap:2px;max-inline-size:var(--measure);
+}
+.byline .lbl{font-size:.78rem;color:var(--muted)}
+.byline b{font-family:var(--font-ar-display);font-size:1.02rem;color:var(--ink-deep)}
+html[lang="en"] .byline b{font-family:var(--font-lat)}
+.byline span:last-child{font-size:.86rem;color:var(--muted)}
 
 /* بطاقات الموديولات */
 .mod-grid{display:grid;gap:14px;grid-template-columns:1fr}
@@ -411,6 +444,9 @@ footer.site{
   border-block-start:1px solid var(--line);margin-block-start:30px;
   padding:20px var(--gap);text-align:center;color:var(--muted);font-size:.85rem;
 }
+footer.site a{color:var(--muted);text-decoration:none;border-block-end:1px solid var(--line)}
+footer.site a:hover{color:var(--ink);border-block-end-color:var(--ink)}
+@media print{ footer.site{border-block-start:1px solid #999;color:#000} }
 
 
 /* ===================== الصور التوضيحية ===================== */

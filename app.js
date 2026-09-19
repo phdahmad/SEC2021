@@ -51,8 +51,9 @@ const UI = {
   contactHours:    { ar: "60 ساعة اتصال",       en: "60 contact hours" },
   level:           { ar: "المستوى الثالث",      en: "Level 3" },
   startHere:       { ar: "ابدأ من الموديول الأول", en: "Start with Module 1" },
+  preparedBy:      { ar: "إعداد وإشراف علمي",   en: "Prepared and supervised by" },
   backHome:        { ar: "الرئيسة",             en: "Home" },
-  footer:          { ar: "SEC2021 — جامعة أم القرى · إعداد وإشراف علمي: د. أحمد الهندي · رخصة CC BY 4.0", en: "SEC2021 — Umm Al-Qura University · Prepared and supervised by Dr. Ahmad Al-Hindi · CC BY 4.0" }
+  footer:          { ar: "SEC2021 · جامعة أم القرى — إعداد وإشراف علمي: د. أحمد الهندي · رخصة CC BY 4.0", en: "SEC2021 · Umm Al-Qura University — Prepared and supervised by Dr. Ahmad Al-Hindi · CC BY 4.0" }
 };
 
 /* ---------- 2) الحالة والتخزين ---------- */
@@ -124,6 +125,8 @@ function applyLang() {
   $("#progLabel").textContent = t("progress");
   $("#footText").textContent = t("footer");
   $("#sidebar").setAttribute("aria-label", t("contents"));
+  $("#aboutLabel").textContent = t("about");
+  $("#aboutBtn").setAttribute("aria-label", t("about"));
   applyThemeLabel();
 }
 
@@ -168,9 +171,10 @@ function renderSidebar(activeId) {
     '<ul class="nav-mod">' +
       '<li><a href="#/" class="' + (activeId === "home" ? "active" : "") + '"><span class="dot">•</span><span>' + t("home") + "</span></a></li>" +
       mods +
-      '<li><a href="#/about" class="' + (activeId === "about" ? "active" : "") + '"><span class="dot">؟</span><span>' + t("about") + "</span></a></li>" +
     "</ul>" +
-    '<button class="btn btn-sm" id="resetBtn" type="button" style="margin-block-start:12px;inline-size:100%;justify-content:center">' + t("reset") + "</button></details>";
+    '<div class="nav-extra"><a href="#/about" class="nav-about' + (activeId === "about" ? " current" : "") +
+      '"><span aria-hidden="true">ⓘ</span>' + t("about") + "</a>" +
+    '<button class="btn btn-sm" id="resetBtn" type="button">' + t("reset") + "</button></div></details>";
 
   syncNavOpen();
   $("#sidebar").querySelectorAll(".nav-mod a").forEach(function (a) {
@@ -228,6 +232,8 @@ function renderHome() {
       "<h1>" + L(COURSE.title) + "</h1>" +
       "<p>" + L(COURSE.lede) + "</p>" +
       '<p style="color:var(--muted);margin-block-start:10px">' + L(COURSE.program) + "</p>" +
+      '<p class="byline"><span class="lbl">' + t("preparedBy") + '</span><b>' + L(COURSE.author) +
+      "</b><span>" + L(COURSE.authorRole) + "</span></p>" +
       '<div class="meta"><span class="chip">' + t("creditHours") + '</span><span class="chip">' +
         t("contactHours") + '</span><span class="chip">' + t("level") + "</span></div>" +
       '<p style="margin-block-start:16px"><a class="btn btn-primary" href="#/m1">' + t("startHere") + "</a></p>" +
@@ -450,6 +456,7 @@ function route() {
   }
 
   renderSidebar(activeId);
+  $("#aboutBtn").classList.toggle("is-on", activeId === "about");
   refreshProgressBar();
 
   const target = parts[1] ? document.getElementById(parts[1]) : null;
