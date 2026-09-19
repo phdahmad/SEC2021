@@ -128,6 +128,8 @@ function applyLang() {
   $("#sidebar").setAttribute("aria-label", t("contents"));
   $("#aboutLabel").textContent = t("about");
   $("#toTop").setAttribute("aria-label", t("toTop"));
+  $("#brandLink").setAttribute("aria-label", t("home") + " — " + COURSE.code);
+  $("#brandLink").title = t("home");
   $("#aboutBtn").setAttribute("aria-label", t("about"));
   applyThemeLabel();
 }

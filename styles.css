@@ -102,7 +102,13 @@ html[data-theme="dark"] .site-header{background:#0A1420;color:var(--text)}
   display:flex;align-items:center;gap:12px;
   padding:10px var(--gap);
 }
-.brand{display:flex;align-items:baseline;gap:10px;min-width:0}
+.brand{
+  display:flex;align-items:baseline;gap:10px;min-width:0;
+  text-decoration:none;color:inherit;padding:4px 2px;border-radius:8px;
+}
+.brand:hover .name{color:var(--amber-bright)}
+html[data-theme="dark"] .brand:hover .name{color:var(--amber)}
+.brand:hover .code{opacity:.85}
 .brand .code{
   font-family:var(--font-mono);font-size:.82rem;letter-spacing:.04em;
   color:var(--amber-bright);flex:none;
