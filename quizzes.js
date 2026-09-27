@@ -500,6 +500,138 @@ const QUIZZES = {
       ],
       correct: 1,
       why: { ar: "وهو أساس مراجعة التقارير الرسمية: ترى من غيّر ماذا، وتقرّر قبول كل تعديل أو رفضه قبل الاعتماد.", en: "It is the basis of reviewing official reports: you see who changed what, and decide to accept or reject each edit before approval." }
+    },
+    {
+      q: { ar: "كتبت فقرة عربية فظهرت النقطة في بداية الجملة لا نهايتها. ما السبب؟", en: "You typed an Arabic paragraph and the full stop appeared at the start of the sentence instead of the end. Why?" },
+      options: [
+        { ar: "لوحة المفاتيح معطّلة", en: "The keyboard is faulty" },
+        { ar: "الخط المستخدم لا يدعم العربية", en: "The font does not support Arabic" },
+        { ar: "اتجاه الفقرة لم يُضبط على «من اليمين إلى اليسار»", en: "The paragraph direction was not set to right-to-left" },
+        { ar: "يجب كتابة النقطة أولاً ثم الجملة", en: "The full stop must be typed before the sentence" }
+      ],
+      correct: 2,
+      why: { ar: "لغة الكتابة واتجاه الفقرة مفهومان مستقلان: الحروف ظهرت عربية سليمة لأن لغة الكتابة صحيحة، وعلامة الترقيم قفزت لأن الفقرة ما زالت من اليسار إلى اليمين. حدّد الفقرة واضغط زر «من اليمين إلى اليسار».", en: "Keyboard language and paragraph direction are independent: the letters came out correct because the language was right, and the punctuation jumped because the paragraph is still left-to-right. Select it and press the right-to-left button." }
+    },
+    {
+      q: { ar: "ما الفرق بين «استبدال» و«استبدال الكل»؟", en: "What is the difference between Replace and Replace All?" },
+      options: [
+        { ar: "«استبدال» يغيّر الموضع الحالي ثم ينتقل للذي يليه، و«استبدال الكل» ينفّذ في المستند دفعة واحدة", en: "Replace changes the current spot then moves on; Replace All does the whole document at once" },
+        { ar: "«استبدال» للنص العربي و«استبدال الكل» للإنجليزي", en: "Replace is for Arabic text and Replace All for English" },
+        { ar: "لا فرق بينهما", en: "There is no difference" },
+        { ar: "«استبدال الكل» يحذف النص بدل تغييره", en: "Replace All deletes text instead of changing it" }
+      ],
+      correct: 0,
+      why: { ar: "ابدأ بـ«استبدال» حين لا تكون واثقاً لتراجع كل حالة بعينك، فإن تحقّقت من أول ثلاثة مواضع انتقل إلى «استبدال الكل».", en: "Start with Replace when unsure so you review each case, and once three spots check out, switch to Replace All." }
+    },
+    {
+      q: { ar: "استبدلت كلمة «علم» بـ«معرفة» بـ«استبدال الكل»، فتغيّرت أيضاً «العلمية» و«معلم». كيف تمنع ذلك؟", en: "You replaced a short word with Replace All and longer words containing it changed too. How do you prevent that?" },
+      options: [
+        { ar: "بإغلاق المستند وإعادة فتحه", en: "By closing and reopening the document" },
+        { ar: "بتغيير الخط قبل الاستبدال", en: "By changing the font before replacing" },
+        { ar: "باستخدام «استبدال» مرة واحدة فقط لكل مستند", en: "By using Replace only once per document" },
+        { ar: "بزر «المزيد» وتفعيل «البحث عن كلمات كاملة فقط»", en: "With the More button and enabling “Find whole words only”" }
+      ],
+      correct: 3,
+      why: { ar: "البحث يطابق سلسلة الحروف لا الكلمة الكاملة، وخيارات «المزيد» هي ما يضبط هذه الدقة — ومنها أيضاً «تطابق حالة الأحرف» للنص اللاتيني.", en: "The search matches a string of letters, not a whole word, and the More options are what add that precision — including Match case for Latin text." }
+    },
+    {
+      q: { ar: "أدرجت صورة في تقرير، وكلما أضفت سطراً تحركت الصورة. ما تفسير ذلك؟", en: "You inserted an image in a report, and it moves whenever you add a line. Why?" },
+      options: [
+        { ar: "حجم الصورة كبير جداً", en: "The image file is too large" },
+        { ar: "الصورة مرتبطة بفقرة لا بموضع ثابت، فتتحرك بحركتها", en: "The image is anchored to a paragraph, not a fixed spot, so it moves with it" },
+        { ar: "صيغة الصورة غير مدعومة", en: "The image format is unsupported" },
+        { ar: "المستند يحتاج إعادة تشغيل البرنامج", en: "The document needs the program restarted" }
+      ],
+      correct: 1,
+      why: { ar: "هذه أشهر شكوى في وورد، وعلاجها ضبط الارتساء (Anchor) من أيقونة «خيارات التخطيط» بعد اختيار نمط التفاف النص.", en: "This is Word's most famous complaint, and the cure is setting the anchor from the Layout Options icon after choosing a wrapping style." }
+    },
+    {
+      q: { ar: "مستند فيه ثلاثون عنواناً كبّرتها يدوياً، وطُلب تغيير شكل العناوين كلها. كم عملية تحتاج؟", en: "A document has thirty headings you enlarged by hand, and you are asked to restyle them all. How many operations?" },
+      options: [
+        { ar: "عملية واحدة في كل الأحوال", en: "One operation in any case" },
+        { ar: "عمليتان: نسخ ولصق", en: "Two: copy and paste" },
+        { ar: "ثلاثون عملية — ولو استخدمت نمط «عنوان 1» لكانت واحدة", en: "Thirty — had you used the Heading 1 style it would have been one" },
+        { ar: "لا يمكن تغيير شكل العناوين بعد كتابتها", en: "Heading appearance cannot be changed after typing" }
+      ],
+      correct: 2,
+      why: { ar: "هذا جوهر الفرق بين التنسيق المباشر والنمط: النمط تنسيق محفوظ باسم، وتعديله يسري على كل ما طُبِّق عليه دفعة واحدة.", en: "This is the heart of the difference between direct formatting and a style: a style is a named saved format, and editing it applies everywhere at once." }
+    },
+    {
+      q: { ar: "ما الشرط الذي يجب توفره لتوليد فهرس محتويات تلقائي؟", en: "What must be in place to generate an automatic table of contents?" },
+      options: [
+        { ar: "أن تكون العناوين مطبّقاً عليها أنماط العناوين مثل «عنوان 1»", en: "The headings must carry heading styles such as Heading 1" },
+        { ar: "أن يتجاوز المستند عشرين صفحة", en: "The document must exceed twenty pages" },
+        { ar: "أن تُكتب أرقام الصفحات يدوياً أولاً", en: "The page numbers must be typed by hand first" },
+        { ar: "أن يكون المستند محفوظاً بصيغة PDF", en: "The document must be saved as PDF" }
+      ],
+      correct: 0,
+      why: { ar: "الفهرس يُبنى على الأنماط لا على حجم الخط. فحين تطبّق «عنوان 1» تخبر وورد أن هذا عنوان، فيستطيع جمع العناوين وأرقام صفحاتها آلياً من تبويب «مراجع».", en: "The contents is built on styles, not font size. Applying Heading 1 tells Word this is a heading, so it can gather the headings and their page numbers automatically from the References tab." }
+    },
+    {
+      q: { ar: "تريد صفحة واحدة أفقية في تقرير كل صفحاته عمودية. ما الذي تحتاجه؟", en: "You want one landscape page in a report whose pages are all portrait. What do you need?" },
+      options: [
+        { ar: "فاصل صفحة (Page Break) قبل الصفحة", en: "A page break before it" },
+        { ar: "إنشاء مستند منفصل ثم دمج الملفين", en: "Creating a separate document then merging the two files" },
+        { ar: "فاصل مقطع (Section Break) قبلها وآخر بعدها", en: "A section break before it and another after it" },
+        { ar: "تغيير الهوامش فقط", en: "Changing the margins only" }
+      ],
+      correct: 2,
+      why: { ar: "اتجاه الصفحة خاصية للمقطع لا للصفحة. وفاصل الصفحة ينقلك إلى صفحة جديدة فقط، بينما فاصل المقطع ينشئ مقطعاً مستقلاً باتجاهه وهوامشه وترقيمه.", en: "Orientation is a property of the section, not the page. A page break only moves you to a new page, while a section break creates an independent section with its own orientation, margins, and numbering." }
+    },
+    {
+      q: { ar: "جدول امتد على أربع صفحات، فلم يعرف المراجع معاني الأعمدة في الصفحات التالية. ما الحل الصحيح؟", en: "A table spans four pages and the reviewer cannot tell what the columns mean on later pages. What is the right fix?" },
+      options: [
+        { ar: "نسخ صف الرؤوس ولصقه يدوياً في أعلى كل صفحة", en: "Copying the header row and pasting it by hand at the top of each page" },
+        { ar: "تصغير الخط حتى يتسع الجدول في صفحة واحدة", en: "Shrinking the font until the table fits one page" },
+        { ar: "تقسيم الجدول إلى أربعة جداول منفصلة", en: "Splitting it into four separate tables" },
+        { ar: "تحديد صف الرؤوس وتفعيل «تكرار صفوف الرأس» من تبويب «تخطيط»", en: "Selecting the header row and enabling Repeat Header Rows on the Layout tab" }
+      ],
+      correct: 3,
+      why: { ar: "النسخ اليدوي يتزحزح مع أي تعديل في الجدول، أما «تكرار صفوف الرأس» فيربط التكرار بالصف الأصلي فيبقى صحيحاً دائماً.", en: "A hand-pasted copy shifts with any edit to the table, while Repeat Header Rows ties the repetition to the original row so it stays correct." }
+    },
+    {
+      q: { ar: "فتحت مستنداً عربياً فوضع المدقق خطاً أحمر تحت كل كلمة. ما التصرف الصحيح؟", en: "You opened an Arabic document and the checker underlined every single word in red. What is the right action?" },
+      options: [
+        { ar: "إطفاء المدقق الإملائي نهائياً", en: "Turning the spell checker off permanently" },
+        { ar: "ضبط لغة الفقرة على العربية من شريط الحالة", en: "Setting the paragraph language to Arabic from the status bar" },
+        { ar: "إضافة كل الكلمات إلى القاموس", en: "Adding every word to the dictionary" },
+        { ar: "إعادة كتابة المستند من جديد", en: "Retyping the document from scratch" }
+      ],
+      correct: 1,
+      why: { ar: "السبب أن لغة الفقرة مضبوطة على الإنجليزية، فالمدقق يقارن كلمات عربية بقاموس إنجليزي. والعلاج ضبط اللغة لا إطفاء أداة مفيدة.", en: "The cause is the paragraph language being set to English, so the checker compares Arabic words against an English dictionary. The cure is setting the language, not switching off a useful tool." }
+    },
+    {
+      q: { ar: "ما الذي يميّز تتبّع التغييرات عن تبادل نسخ معدّلة بالبريد؟", en: "What sets track changes apart from mailing edited copies back and forth?" },
+      options: [
+        { ar: "أنه أسرع في الحفظ", en: "It saves faster" },
+        { ar: "أنه يقلّل حجم الملف", en: "It reduces the file size" },
+        { ar: "أنه يسجّل تعديل كل مراجع بلونه، ويُقبل أو يُرفض كل تعديل على حدة", en: "It records each reviewer's edits in their colour, and each edit is accepted or rejected separately" },
+        { ar: "أنه يمنع المراجعين من التعديل", en: "It stops reviewers from editing" }
+      ],
+      correct: 2,
+      why: { ar: "المراجعة تصير عملية مرئية على ملف واحد بدل مقارنة نسخ متضاربة. وتذكّر أن تقبل أو ترفض كل التغييرات وتحذف التعليقات قبل الإرسال النهائي.", en: "Reviewing becomes a visible process on one file instead of comparing conflicting copies. And remember to accept or reject every change and delete comments before the final send." }
+    },
+    {
+      q: { ar: "في دمج المراسلات، أين يوضع التنسيق ليرثه كل اسم يحلّ في موضعه؟", en: "In a mail merge, where is formatting applied so that every name filling the spot inherits it?" },
+      options: [
+        { ar: "على كل سجل في مصدر البيانات على حدة", en: "On each record in the data source separately" },
+        { ar: "على حقل الدمج نفسه في القالب", en: "On the merge field itself in the template" },
+        { ar: "بعد إتمام الدمج على كل مستند ناتج", en: "After merging, on each resulting document" },
+        { ar: "التنسيق غير ممكن في الدمج", en: "Formatting is not possible in a merge" }
+      ],
+      correct: 1,
+      why: { ar: "التنسيق يُطبَّق على الحقل لا على نص بعينه، فيرثه كل اسم يحلّ محله. وهذا ما يجعل مئة خطاب متطابقة الشكل بعملية تنسيق واحدة.", en: "Formatting applies to the field rather than a particular piece of text, so every name inheriting it looks the same. That is how a hundred letters stay visually identical from one formatting action." }
+    },
+    {
+      q: { ar: "نسيت كلمة مرور مستند وورد مشفّر. ما الحل؟", en: "You forgot the password of an encrypted Word document. What is the solution?" },
+      options: [
+        { ar: "استخدام خيار «نسيت كلمة المرور» في وورد", en: "Using Word’s “forgot password” option" },
+        { ar: "التواصل مع الدعم الفني لاسترجاعها", en: "Contacting support to recover it" },
+        { ar: "إعادة تثبيت أوفيس يزيل التشفير", en: "Reinstalling Office removes the encryption" },
+        { ar: "لا يوجد حل — التشفير حقيقي والملف لا يُسترجع", en: "There is none — the encryption is real and the file is not recoverable" }
+      ],
+      correct: 3,
+      why: { ar: "كلمة مرور الفتح تشفّر الملف فعلياً، ولا توجد طريقة لاسترجاعه. احفظ كلمة المرور في مدير كلمات مرور موثوق قبل أن تشفّر لا بعده.", en: "An opening password genuinely encrypts the file, and there is no way to recover it. Save the password in a trusted password manager before you encrypt, not after." }
     }
   ],
 

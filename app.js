@@ -33,6 +33,10 @@ const UI = {
   zoomHint:        { ar: "اضغط الصورة لتكبيرها",  en: "Tap the image to enlarge" },
   closeImg:        { ar: "إغلاق الصورة",          en: "Close image" },
   toTop:           { ar: "العودة إلى الأعلى",     en: "Back to top" },
+  trackWord:       { ar: "مسار Word",             en: "Word track" },
+  trackExcel:      { ar: "مسار Excel",            en: "Excel track" },
+  trackAccess:     { ar: "مسار Access",           en: "Access track" },
+  trackPpt:        { ar: "مسار PowerPoint",       en: "PowerPoint track" },
   next:            { ar: "التالي",              en: "Next" },
   prev:            { ar: "السابق",              en: "Previous" },
   soon:            { ar: "قيد الإعداد",         en: "In preparation" },
@@ -160,10 +164,17 @@ function renderSidebar(activeId) {
     const done = ready && p >= 100;
     const active = m.id === activeId;
     const href = ready ? "#/" + m.id : "#/";
+    let lastTrack = null;
     const sub = (active && ready)
-      ? '<ul class="nav-sub">' + m.sections.map(s =>
-          '<li><a href="#/' + m.id + '/' + s.id + '" data-spy="' + s.id + '">' + L(s.title) + "</a></li>"
-        ).join("") + "</ul>"
+      ? '<ul class="nav-sub">' + m.sections.map(function (s) {
+          let head = "";
+          if (s.track && s.track !== lastTrack) {
+            head = '<li class="nav-track">' + trackName(s.track) + "</li>";
+          }
+          lastTrack = s.track || null;
+          return head + '<li><a href="#/' + m.id + '/' + s.id + '" data-spy="' + s.id + '">' +
+            L(s.title) + "</a></li>";
+        }).join("") + "</ul>"
       : "";
     return '<li><a href="' + href + '" class="' + (active ? "active " : "") + (done ? "done" : "") +
       (ready ? "" : " pending") + '"><span class="dot">' + n(m.n) + "</span><span>" + L(m.title) +
@@ -195,6 +206,9 @@ function renderSidebar(activeId) {
     }
   });
 }
+
+const TRACK_KEY = { word: "trackWord", excel: "trackExcel", access: "trackAccess", ppt: "trackPpt" };
+function trackName(id) { return TRACK_KEY[id] ? t(TRACK_KEY[id]) : id; }
 
 const wideScreen = window.matchMedia("(min-width:980px)");
 function syncNavOpen() {
