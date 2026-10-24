@@ -14,6 +14,8 @@ const UI = {
   contents:        { ar: "محتويات المقرر",      en: "Course contents" },
   home:            { ar: "الصفحة الرئيسة",      en: "Home" },
   about:           { ar: "عن المقرر",           en: "About" },
+  myWork:          { ar: "أعمالي",              en: "My work" },
+  myWorkHint:      { ar: "أعمالي المصحّحة ودرجاتي (برقمك الجامعي ورمزك)", en: "My marked work and marks (with your ID and code)" },
   reset:           { ar: "تصفير التقدم",        en: "Reset progress" },
   resetAsk:        { ar: "سيُمحى سجل القراءة لكل الموديولات. هل تريد المتابعة؟", en: "Your reading record for all modules will be erased. Continue?" },
   hours:           { ar: "ساعة",                en: "hours" },
@@ -135,6 +137,8 @@ function applyLang() {
   $("#brandLink").setAttribute("aria-label", t("home") + " — " + COURSE.code);
   $("#brandLink").title = t("home");
   $("#aboutBtn").setAttribute("aria-label", t("about"));
+  $("#myWorkLabel").textContent = t("myWork");
+  $("#myWorkBtn").title = t("myWorkHint");
   applyThemeLabel();
 }
 
