@@ -121,7 +121,20 @@ html[data-theme="dark"] .brand .code{color:var(--amber)}
 html[lang="en"] .brand .name{font-family:var(--font-lat)}
 html[data-theme="dark"] .brand .name{color:var(--text)}
 .header-actions{display:flex;gap:8px;margin-inline-start:auto;flex:none}
-#aboutBtn{text-decoration:none}
+#aboutBtn,#myWorkBtn{text-decoration:none}
+#myWorkBtn{display:inline-flex;align-items:center;gap:6px}
+#myWorkBtn svg{flex:none}
+/* «أعمالي» يبقى باسمه على الشاشات الضيقة، وزر الوضع يكتفي بأيقونته */
+@media (max-width:440px){
+  #themeLabel{display:none}
+  #myWorkBtn svg{display:none}
+  .header-actions{gap:6px}
+  .header-actions .btn-sm{padding-inline:8px}
+}
+/* أضيق الشاشات: «عن المقرر» يبقى في التذييل */
+@media (max-width:340px){
+  #aboutBtn{display:none}
+}
 #aboutBtn.is-on{background:var(--amber-bright);color:#16202E;border-color:var(--amber-bright)}
 /* على الشاشات الضيقة: أيقونة فقط، واسم المقرر يختفي ليتسع الشريط */
 @media (max-width:620px){
