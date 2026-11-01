@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """يولّد أوراق تمارين وورد PDF من المحتوى نفسه — مصدر واحد للحقيقة.
    RTL مضبوط كخاصية على <html> والقوائم والجداول، بلا أي حيلة نصية."""
-import json, pathlib, re, subprocess, sys
+import json, os, pathlib, re, subprocess, sys
 
 DIR = pathlib.Path(__file__).parent
 OUT = DIR / "_sheets2"
@@ -130,7 +130,8 @@ ul.check-list > li::before{
 }
 /* لقطات الشاشة في الورقة */
 figure.fig{ margin:10px 0; break-inside:avoid; page-break-inside:avoid; text-align:center }
-figure.fig img{ max-width:100%; width:auto; border:1px solid #DCD7CB; border-radius:5px }
+figure.fig img{ max-width:100%; width:auto; border:1px solid #DCD7CB; border-radius:5px;
+  image-rendering:-webkit-optimize-contrast }
 figure.fig figcaption{
   margin-top:5px; font-size:9pt; color:#53606F; text-align:right;
 }
@@ -200,7 +201,34 @@ def clean(html: str) -> str:
 
 GOAL_RE = re.compile(r'^الهدف:\s*')
 
+IMG_SRC_RE = re.compile(r'<img([^>]*?)src="images/([^"]+)"([^>]*?)>')
+
+# نسبة العرض على الورق إلى البكسل الأصلي: أقل من ١ ⇒ كثافة نقطية أعلى ⇒ أوضح في الطباعة.
+OVERSAMPLE = 0.46          # 3.7795 px/mm عند 96dpi
+CAP_MM = 104.0             # لا تتجاوز صورة هذا العرض على الورقة
+CAP_H_MM = 92.0            # ولا هذا الارتفاع، كي لا تلتهم اللقطة الطويلة نصف الصفحة
+
+def _img_width_mm(name):
+    from PIL import Image
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'images', name)
+    try:
+        with Image.open(p) as im:
+            w, h = im.width, im.height
+    except Exception:
+        return None
+    mm = min(CAP_MM, w * OVERSAMPLE / 3.7795)
+    if h > w:                      # لقطة طويلة: قيّدها بالارتفاع بدل العرض
+        mm = min(mm, CAP_H_MM * w / h)
+    return round(mm, 1)
+
 def clean_map(h):
+    def fix(m):
+        pre, name, post = m.group(1), m.group(2), m.group(3)
+        mm = _img_width_mm(name)
+        style = ' style="width:%smm"' % mm if mm else ''
+        return '<img%ssrc="images/%s"%s%s>' % (pre, name, post, style)
+    h = IMG_SRC_RE.sub(fix, h)
+    h = h.replace(' loading="lazy"', '')      # الطباعة تحتاج الصور محمّلة كلها
     h = h.replace('images/', '../images/')
     h = h.replace('<h3>خريطة الأزرار: أين تجد ما ستحتاجه</h3>', '<p class="map-head">خريطة الأزرار: أين تجد ما ستحتاجه</p>')
     h = h.replace('<h3>خريطة الأزرار</h3>', '<p class="map-head">خريطة الأزرار</p>')
@@ -253,7 +281,8 @@ with sync_playwright() as pw:
     page = b.new_page()
     for u, p in files:
         page.goto("file://" + str(p.resolve()))
-        page.wait_for_timeout(300)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(400)
         pdf = OUT / ("SEC2021_Word_تمرين_%02d.pdf" % u["num"])
         page.pdf(path=str(pdf), format="A4", print_background=True,
                  display_header_footer=True, header_template="<span></span>",

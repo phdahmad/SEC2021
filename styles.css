@@ -475,8 +475,8 @@ footer.site a:hover{color:var(--ink);border-block-end-color:var(--ink)}
   margin-block-start:8px;font-size:.85rem;color:var(--muted);text-align:start;
 }
 /* لقطات واجهة البرامج: لا تتمدد فوق حجمها الأصلي فتفقد حدّتها */
-.fig.ui img{max-inline-size:min(100%,760px);margin-inline:auto}
-.fig.ui figcaption{max-inline-size:760px;margin-inline:auto}
+.fig.ui img{max-inline-size:min(100%,470px);max-block-size:400px;inline-size:auto;block-size:auto;margin-inline:auto;image-rendering:-webkit-optimize-contrast}
+.fig.ui figcaption{max-inline-size:470px;margin-inline:auto}
 .fig figcaption .n{font-family:var(--font-mono);color:var(--amber);margin-inline-end:6px}
 html[data-theme="dark"] .fig img{filter:brightness(.94)}
 
