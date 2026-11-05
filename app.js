@@ -33,6 +33,8 @@ const UI = {
   zoomHint:        { ar: "اضغط الصورة لتكبيرها",  en: "Tap the image to enlarge" },
   closeImg:        { ar: "إغلاق الصورة",          en: "Close image" },
   toTop:           { ar: "العودة إلى الأعلى",     en: "Back to top" },
+  navFab:          { ar: "الفهرس",               en: "Contents" },
+  navClose:        { ar: "إغلاق الفهرس",          en: "Close contents" },
   trackWord:       { ar: "مسار Word",             en: "Word track" },
   trackExcel:      { ar: "مسار Excel",            en: "Excel track" },
   trackAccess:     { ar: "مسار Access",           en: "Access track" },
@@ -132,6 +134,7 @@ function applyLang() {
   $("#sidebar").setAttribute("aria-label", t("contents"));
   $("#aboutLabel").textContent = t("about");
   $("#toTop").setAttribute("aria-label", t("toTop"));
+  $("#navFabLabel").textContent = t("navFab");
   $("#brandLink").setAttribute("aria-label", t("home") + " — " + COURSE.code);
   $("#brandLink").title = t("home");
   $("#aboutBtn").setAttribute("aria-label", t("about"));
@@ -194,7 +197,7 @@ function renderSidebar(activeId) {
   syncNavOpen();
   $("#sidebar").querySelectorAll(".nav-mod a").forEach(function (a) {
     a.addEventListener("click", function () {
-      if (!wideScreen.matches) $("#navWrap").open = false;
+      if (!wideScreen.matches) closeNav();
     });
   });
 
@@ -215,7 +218,38 @@ function syncNavOpen() {
   const w = document.getElementById("navWrap");
   if (w) w.open = wideScreen.matches;
 }
-wideScreen.addEventListener("change", syncNavOpen);
+wideScreen.addEventListener("change", function () {
+  syncNavOpen();
+  if (wideScreen.matches) closeNav();
+});
+
+/* درج الفهرس على الشاشات الصغيرة: يفتح من أي موضع في الصفحة */
+function openNav() {
+  const w = document.getElementById("navWrap");
+  if (w) w.open = true;
+  document.body.classList.add("nav-open");
+  const fab = document.getElementById("navFab");
+  const scrim = document.getElementById("navScrim");
+  if (fab) { fab.setAttribute("aria-expanded", "true"); fab.querySelector(".lbl").textContent = t("navClose"); }
+  if (scrim) scrim.hidden = false;
+  /* أظهر الموضع الحالي في الفهرس بدل أن يبدأ الدرج من أوله */
+  const here = location.hash.replace(/^#/, "");
+  const cur = document.querySelector('#sidebar a[href="#' + here + '"]')
+           || document.querySelector("#sidebar .nav-sub a.current")
+           || document.querySelector("#sidebar .nav-mod a.active");
+  if (cur) { cur.scrollIntoView({ block: "center" }); cur.classList.add("here"); }
+  const first = document.querySelector("#sidebar .nav-mod a");
+  if (first) first.focus({ preventScroll: true });
+}
+function closeNav() {
+  document.body.classList.remove("nav-open");
+  const fab = document.getElementById("navFab");
+  const scrim = document.getElementById("navScrim");
+  if (fab) { fab.setAttribute("aria-expanded", "false"); fab.querySelector(".lbl").textContent = t("navFab"); }
+  if (scrim) scrim.hidden = true;
+  document.querySelectorAll("#sidebar a.here").forEach(a => a.classList.remove("here"));
+  if (!wideScreen.matches) { const w = document.getElementById("navWrap"); if (w) w.open = false; }
+}
 
 /* ---------- 7) الصفحة الرئيسة ---------- */
 function cloChips(codes) {
@@ -502,6 +536,15 @@ function init() {
     state.theme = state.theme === "dark" ? "light" : "dark";
     saveState();
     applyTheme();
+  });
+
+  const fab = $("#navFab"), scrim = $("#navScrim");
+  fab.addEventListener("click", function () {
+    document.body.classList.contains("nav-open") ? closeNav() : openNav();
+  });
+  scrim.addEventListener("click", closeNav);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && document.body.classList.contains("nav-open")) closeNav();
   });
 
   const toTop = $("#toTop");

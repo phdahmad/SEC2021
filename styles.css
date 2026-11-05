@@ -580,6 +580,41 @@ ol.lab-steps .where{
 html[lang="ar"] .fig figcaption::after{content:"⤢ اضغط للتكبير"}
 html[lang="en"] .fig figcaption::after{content:"⤢ Tap to enlarge"}
 
+/* ===== فهرس عائم للشاشات الصغيرة ===== */
+#navFab{
+  position:fixed;inset-block-end:16px;inset-inline-start:16px;z-index:60;
+  display:none;align-items:center;gap:8px;cursor:pointer;
+  padding:10px 16px;border-radius:999px;border:1px solid var(--ink-deep);
+  background:var(--ink);color:#fff;font:inherit;font-size:.9rem;font-weight:700;
+  box-shadow:0 3px 12px rgba(14,35,64,.32);
+}
+html[lang="en"] #navFab{font-family:var(--font-lat)}
+html[data-theme="dark"] #navFab{color:#0E1926}
+#navFab .ico{font-size:1.05rem;line-height:1}
+#navScrim{position:fixed;inset:0;z-index:70;background:rgba(14,25,38,.52);border:0}
+@media (max-width:979px){
+  #navFab{display:inline-flex}
+  body.nav-open{overflow:hidden}
+  body.nav-open .sidebar{
+    position:fixed;inset-block:0;inset-inline-start:0;z-index:80;
+    inline-size:min(88vw,380px);max-block-size:100vh;overflow:auto;
+    background:var(--paper);border-inline-end:1px solid var(--line);
+    border-radius:0;margin:0;padding:14px 14px 90px;
+    box-shadow:0 0 28px rgba(14,35,64,.35);
+    animation:navIn .18s ease-out;
+  }
+  body.nav-open .sidebar .nav-wrap > summary{position:sticky;inset-block-start:-14px;
+    background:var(--paper);z-index:1;padding-block:10px}
+  body:not(.nav-open) #navScrim{display:none}
+  body.nav-open #navFab{z-index:90;background:var(--amber-bright,#C8761A);border-color:var(--amber-bright,#C8761A);color:#fff}
+  body.nav-open #toTop{display:none!important}
+}
+@keyframes navIn{from{transform:translateX(var(--nav-slide,-14px));opacity:.4}to{transform:none;opacity:1}}
+html[dir="rtl"] body.nav-open .sidebar{--nav-slide:14px}
+@media print{ #navFab,#navScrim{display:none!important} }
+
+#sidebar a.here{outline:2px solid var(--amber-bright);outline-offset:2px}
+
 /* زر العودة إلى الأعلى */
 #toTop{
   position:fixed;inset-block-end:16px;inset-inline-end:16px;z-index:50;
