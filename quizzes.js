@@ -489,7 +489,80 @@ const QUIZZES = {
       ],
       correct: 2,
       why: { ar: "بيانات المرضى تخضع لسياسات الجهة وأنظمة حماية البيانات، والانتماء للجهة نفسها لا يعني صلاحية الاطلاع. القناة المعتمدة والصلاحية هما الأساس.", en: "Patient data falls under organisational policy and data protection rules, and working at the same place does not grant access rights. The approved channel and proper authorisation are what matter." }
+    }
+  
+  ],
+
+  m5: [
+    {
+      q: { ar: "أي هذه ليست شرطاً في الخوارزمية السليمة؟", en: "Which of these is NOT a condition for a sound algorithm?" },
+      options: [
+        { ar: "أن تكون خطواتها محددة لا تحتمل أكثر من فهم", en: "Its steps are defined and cannot be read in two ways" },
+        { ar: "أن تكون مكتوبة بلغة برمجة معيّنة", en: "It is written in a specific programming language" },
+        { ar: "أن تكون منتهية ولا تدور بلا توقف", en: "It is finite and does not run forever" },
+        { ar: "أن يكون لها مدخلات ومخرجات", en: "It has inputs and outputs" }
+      ],
+      correct: 1,
+      why: { ar: "الخوارزمية فكرة مستقلة عن اللغة: وصفة الطبخ وإجراءات فرز المرضى خوارزميات، ويمكن تنفيذها بأي لغة أو بلا حاسب أصلاً.", en: "An algorithm is an idea independent of language: a recipe and a triage procedure are algorithms, and can be carried out in any language or with no computer at all." }
     },
+    {
+      q: { ar: "في أي مرحلة من دورة تطوير البرنامج يكون تصحيح الخطأ أرخص ما يكون؟", en: "At which stage of the development cycle is fixing an error cheapest?" },
+      options: [
+        { ar: "الترميز", en: "Coding" },
+        { ar: "الاختبار", en: "Testing" },
+        { ar: "تحليل المشكلة", en: "Analysis" },
+        { ar: "الصيانة بعد التشغيل", en: "Maintenance after go-live" }
+      ],
+      correct: 2,
+      why: { ar: "خطأ يُكتشف في التحليل يُصحَّح بجملة، وفي الترميز بساعة، وبعد التشغيل قد يكلّف إعادة بناء ومسؤولية على بيانات حقيقية.", en: "An error caught in analysis is fixed with a sentence, in coding with an hour, and after go-live it may cost a rebuild and responsibility over real data." }
+    },
+    {
+      q: { ar: "ما الشكل الذي يمثّل القرار في المخطط الانسيابي؟", en: "Which shape represents a decision in a flowchart?" },
+      options: [
+        { ar: "المعيّن", en: "The diamond" },
+        { ar: "البيضاوي", en: "The oval" },
+        { ar: "المستطيل", en: "The rectangle" },
+        { ar: "متوازي الأضلاع", en: "The parallelogram" }
+      ],
+      correct: 0,
+      why: { ar: "البيضاوي بداية أو نهاية، والمستطيل عملية، ومتوازي الأضلاع إدخال أو إخراج. والمعيّن له مخرجان: نعم ولا.", en: "The oval is start or end, the rectangle a process, and the parallelogram input or output. The diamond has two exits: yes and no." }
+    },
+    {
+      q: { ar: "ما الفرق بين المترجم (Compiler) والمفسّر (Interpreter)؟", en: "What is the difference between a compiler and an interpreter?" },
+      options: [
+        { ar: "المترجم للغات العربية والمفسّر للغات الإنجليزية", en: "A compiler is for Arabic and an interpreter for English" },
+        { ar: "المفسّر يحوّل الكود إلى مخطط انسيابي", en: "An interpreter turns code into a flowchart" },
+        { ar: "لا فرق، فكلاهما اسمان لشيء واحد", en: "No difference; they are two names for one thing" },
+        { ar: "المترجم يحوّل البرنامج كاملاً مرة واحدة قبل التشغيل، والمفسّر يترجم وينفّذ سطراً سطراً", en: "A compiler converts the whole program once before running; an interpreter translates and runs line by line" }
+      ],
+      correct: 3,
+      why: { ar: "ولهذا تظهر أخطاء المترجم كلها قبل التشغيل، بينما تظهر أخطاء المفسّر عند بلوغ السطر الخاطئ. وبايثون لغة مفسّرة.", en: "That is why a compiler shows all errors before running, while an interpreter shows them when it reaches the faulty line. Python is interpreted." }
+    },
+    {
+      q: { ar: "برنامج يحسب معدل طالب ويعمل بلا توقف، لكنه يعطي 45 بدل 75. أي نوع من الأخطاء هذا؟", en: "A program computes a student average, runs without stopping, but returns 45 instead of 75. Which error type is this?" },
+      options: [
+        { ar: "خطأ صياغة Syntax Error", en: "Syntax error" },
+        { ar: "خطأ تشغيل Runtime Error", en: "Runtime error" },
+        { ar: "خطأ منطقي Logic Error", en: "Logic error" },
+        { ar: "ليس خطأ، بل عطل في الجهاز", en: "Not an error, but a hardware fault" }
+      ],
+      correct: 2,
+      why: { ar: "البرنامج يعمل ولا يتوقف، لكن النتيجة خاطئة — وهذا الخطأ المنطقي، وأخطرها لأنه لا يصرخ. ويُكتشف بالاختبار بحالات تُعرف نتيجتها سلفاً.", en: "The program runs and does not stop, but the result is wrong — a logic error, the most dangerous kind because it stays silent. It is caught by testing with cases whose answer you already know." }
+    },
+    {
+      q: { ar: "لماذا اختير بايثون لهذا المقرر تحديداً؟", en: "Why was Python chosen for this course?" },
+      options: [
+        { ar: "قواعدها قريبة من الإنجليزية البسيطة، ومفسّرة فترى نتيجة السطر فوراً، ومجانية مفتوحة المصدر، ومكتباتها واسعة", en: "Its rules are close to simple English, it is interpreted so you see a line's result at once, it is free and open source, and its libraries are broad" },
+        { ar: "لأنها أقدم لغة برمجة في العالم", en: "Because it is the world's oldest programming language" },
+        { ar: "لأنها اللغة الوحيدة التي يفهمها المعالج مباشرة", en: "Because it is the only language a processor understands directly" },
+        { ar: "لأنها لغة منخفضة المستوى قريبة من العتاد", en: "Because it is a low-level language close to the hardware" }
+      ],
+      correct: 0,
+      why: { ar: "لا لغة يفهمها المعالج مباشرة سوى لغة الآلة. وبايثون لغة عالية المستوى، أي بعيدة عن تفاصيل العتاد وقريبة من الإنسان.", en: "No language is understood directly by the processor except machine language. Python is high-level, meaning far from hardware detail and close to humans." }
+    }
+  ],
+
+  m7: [
     {
       q: { ar: "ما الغرض من تتبّع التغييرات (Track Changes) في Word؟", en: "What is track changes in Word for?" },
       options: [
@@ -742,75 +815,136 @@ const QUIZZES = {
       ],
       correct: 3,
       why: { ar: "الخطوط ليست داخل الملف بل على الجهاز، فإن غابت استبدلها النظام بغيرها فتزحف الأسطر وتتغيّر المقاسات. و PDF يحتفظ بشكل الصفحة، وإن كان يفقد الحركات — ولهذا هو نسخة احتياطية لا بديل.", en: "Fonts live on the machine, not inside the file; if one is missing the system substitutes another and lines shift and sizes change. PDF preserves the page's appearance, though it loses the animations — which is why it is a fallback, not a replacement." }
-    }
-  ],
-
-  m5: [
+    },
     {
-      q: { ar: "أي هذه ليست شرطاً في الخوارزمية السليمة؟", en: "Which of these is NOT a condition for a sound algorithm?" },
+      q: { ar: "خلية تعرض <span class=\"spec\">1250</span> لكنها التصقت بجهة النص لا جهة الأرقام. ما أرجح السبب؟",
+           en: "A cell displays <span class=\"spec\">1250</span> but hugs the text side rather than the number side. What is the likeliest reason?" },
       options: [
-        { ar: "أن تكون خطواتها محددة لا تحتمل أكثر من فهم", en: "Its steps are defined and cannot be read in two ways" },
-        { ar: "أن تكون مكتوبة بلغة برمجة معيّنة", en: "It is written in a specific programming language" },
-        { ar: "أن تكون منتهية ولا تدور بلا توقف", en: "It is finite and does not run forever" },
-        { ar: "أن يكون لها مدخلات ومخرجات", en: "It has inputs and outputs" }
+        { ar: "القيمة مخزَّنة نصاً لا رقماً، فلن تدخل في أي عملية جمع", en: "The value is stored as text, not a number, so it will not enter any sum" },
+        { ar: "العمود ضيّق ويحتاج توسيعاً", en: "The column is too narrow and needs widening" },
+        { ar: "الورقة اتجاهها من اليمين إلى اليسار", en: "The sheet is set right-to-left" },
+        { ar: "التنسيق المطبّق عليها «عملة»", en: "The cell has Currency formatting applied" }
+      ],
+      correct: 0,
+      why: { ar: "إكسل يحاذي الأرقام والتواريخ إلى جهة والنصوص إلى الجهة الأخرى تلقائياً، فالمحاذاة التلقائية تشخيص لنوع المحتوى. ورقم مخزَّن نصاً يُهمَل في <span class=\"spec\">SUM</span> و<span class=\"spec\">AVERAGE</span> بلا أي رسالة خطأ، وهذا ما يجعله خطأً صامتاً خطيراً.",
+             en: "Excel aligns numbers and dates one way and text the other automatically, so the alignment diagnoses the content type. A number stored as text is ignored by <span class=\"spec\">SUM</span> and <span class=\"spec\">AVERAGE</span> with no error message at all — which is what makes it a dangerous silent fault." }
+    },
+    {
+      q: { ar: "ما نتيجة الصيغة <span class=\"spec\">=2+3*4</span>؟",
+           en: "What does the formula <span class=\"spec\">=2+3*4</span> return?" },
+      options: [
+        { ar: "<span class=\"num\">20</span>، لأن إكسل يحسب من اليسار إلى اليمين", en: "<span class=\"num\">20</span>, because Excel works left to right" },
+        { ar: "<span class=\"num\">14</span>، لأن الضرب يسبق الجمع في ترتيب العمليات", en: "<span class=\"num\">14</span>, because multiplication precedes addition" },
+        { ar: "رسالة خطأ لأن الصيغة تحتاج قوسين", en: "An error, because the formula needs brackets" },
+        { ar: "<span class=\"num\">24</span>، لأن إكسل يجمع كل الأرقام ثم يضرب", en: "<span class=\"num\">24</span>, because Excel adds everything then multiplies" }
       ],
       correct: 1,
-      why: { ar: "الخوارزمية فكرة مستقلة عن اللغة: وصفة الطبخ وإجراءات فرز المرضى خوارزميات، ويمكن تنفيذها بأي لغة أو بلا حاسب أصلاً.", en: "An algorithm is an idea independent of language: a recipe and a triage procedure are algorithms, and can be carried out in any language or with no computer at all." }
+      why: { ar: "ترتيب العمليات: ما بين القوسين، ثم الأُس، ثم الضرب والقسمة، ثم الجمع والطرح. فـ<span class=\"spec\">3*4</span> تُحسب أولاً ثم يُضاف إليها <span class=\"num\">2</span>. ولو أردت الجمع أولاً لكتبت <span class=\"spec\">=(2+3)*4</span> فتكون النتيجة <span class=\"num\">20</span>.",
+             en: "Precedence runs: brackets, exponent, multiply and divide, then add and subtract. <span class=\"spec\">3*4</span> is computed first and <span class=\"num\">2</span> added to it. To add first you would write <span class=\"spec\">=(2+3)*4</span>, giving <span class=\"num\">20</span>." }
     },
     {
-      q: { ar: "في أي مرحلة من دورة تطوير البرنامج يكون تصحيح الخطأ أرخص ما يكون؟", en: "At which stage of the development cycle is fixing an error cheapest?" },
+      q: { ar: "كتبت في <span class=\"spec\">D2</span> الصيغة <span class=\"spec\">=C2*F1</span> حيث <span class=\"spec\">F1</span> نسبة الضريبة، ثم سحبتها إلى أسفل فجاءت النتائج أصفاراً. ما الإصلاح؟",
+           en: "In <span class=\"spec\">D2</span> you wrote <span class=\"spec\">=C2*F1</span>, where <span class=\"spec\">F1</span> holds the tax rate, then dragged it down and every result came out zero. What is the fix?" },
       options: [
-        { ar: "الترميز", en: "Coding" },
-        { ar: "الاختبار", en: "Testing" },
-        { ar: "تحليل المشكلة", en: "Analysis" },
-        { ar: "الصيانة بعد التشغيل", en: "Maintenance after go-live" }
+        { ar: "تغيير تنسيق العمود إلى «عملة»", en: "Change the column format to Currency" },
+        { ar: "إعادة كتابة الصيغة في كل صف يدوياً", en: "Retype the formula in every row by hand" },
+        { ar: "تثبيت مرجع النسبة ليصير <span class=\"spec\">=C2*$F$1</span>", en: "Pin the rate reference so it reads <span class=\"spec\">=C2*$F$1</span>" },
+        { ar: "تحويل النطاق إلى جدول بـ<span class=\"kbd\">Ctrl + T</span>", en: "Convert the range to a Table with <span class=\"kbd\">Ctrl + T</span>" }
       ],
       correct: 2,
-      why: { ar: "خطأ يُكتشف في التحليل يُصحَّح بجملة، وفي الترميز بساعة، وبعد التشغيل قد يكلّف إعادة بناء ومسؤولية على بيانات حقيقية.", en: "An error caught in analysis is fixed with a sentence, in coding with an hour, and after go-live it may cost a rebuild and responsibility over real data." }
+      why: { ar: "المرجع النسبي يتحرّك مع النسخ، فصارت <span class=\"spec\">F1</span> تشير إلى <span class=\"spec\">F2</span> ثم <span class=\"spec\">F3</span> وهي خلايا فارغة، والضرب في فارغ صفر. وعلامة الدولار تثبّت الخلية فلا تتحرّك، والمفتاح <span class=\"kbd\">F4</span> يضيفها نيابة عنك.",
+             en: "A relative reference travels when copied, so <span class=\"spec\">F1</span> became <span class=\"spec\">F2</span>, then <span class=\"spec\">F3</span> — empty cells, and multiplying by empty gives zero. Dollar signs pin the cell, and <span class=\"kbd\">F4</span> adds them for you." }
     },
     {
-      q: { ar: "ما الشكل الذي يمثّل القرار في المخطط الانسيابي؟", en: "Which shape represents a decision in a flowchart?" },
+      q: { ar: "عمود فيه أسماء مراجعين. أي دالة تعطيك عددهم؟",
+           en: "A column holds patient names. Which function gives you their count?" },
       options: [
-        { ar: "المعيّن", en: "The diamond" },
-        { ar: "البيضاوي", en: "The oval" },
-        { ar: "المستطيل", en: "The rectangle" },
-        { ar: "متوازي الأضلاع", en: "The parallelogram" }
+        { ar: "<span class=\"spec\">COUNTA</span>، لأنها تعدّ كل خلية غير فارغة أياً كان محتواها", en: "<span class=\"spec\">COUNTA</span>, because it counts every non-empty cell whatever it holds" },
+        { ar: "<span class=\"spec\">COUNT</span>، لأنها الدالة المخصّصة للعدّ", en: "<span class=\"spec\">COUNT</span>, because it is the function made for counting" },
+        { ar: "<span class=\"spec\">SUM</span> بعد تنسيق العمود رقماً", en: "<span class=\"spec\">SUM</span> after formatting the column as numbers" },
+        { ar: "<span class=\"spec\">MAX</span>، لأنها تُرجع آخر صف مملوء", en: "<span class=\"spec\">MAX</span>, because it returns the last filled row" }
       ],
       correct: 0,
-      why: { ar: "البيضاوي بداية أو نهاية، والمستطيل عملية، ومتوازي الأضلاع إدخال أو إخراج. والمعيّن له مخرجان: نعم ولا.", en: "The oval is start or end, the rectangle a process, and the parallelogram input or output. The diamond has two exits: yes and no." }
+      why: { ar: "<span class=\"spec\">COUNT</span> تعدّ الأرقام فقط، فلو استعملتها على عمود أسماء لجاءتك النتيجة صفراً وظننت الجدول فارغاً. و<span class=\"spec\">COUNTA</span> تعدّ كل خلية غير فارغة، وهي المناسبة لعدّ السجلات. اختر الدالة بحسب ما تعدّه لا بحسب ما تراه.",
+             en: "<span class=\"spec\">COUNT</span> counts numbers only, so on a column of names it returns zero and you conclude the table is empty. <span class=\"spec\">COUNTA</span> counts every non-empty cell and is the right one for records. Choose by what you are counting, not by what you see." }
     },
     {
-      q: { ar: "ما الفرق بين المترجم (Compiler) والمفسّر (Interpreter)؟", en: "What is the difference between a compiler and an interpreter?" },
+      q: { ar: "صفّ درجة حرارته <span class=\"num\">38</span> بالضبط، والصيغة <span class=\"spec\">=IF(C2&gt;38,\"مرتفعة\",\"طبيعية\")</span>. ماذا يظهر، ولماذا يهمّ؟",
+           en: "A row's temperature is exactly <span class=\"num\">38</span> and the formula is <span class=\"spec\">=IF(C2&gt;38,\"high\",\"normal\")</span>. What appears, and why does it matter?" },
       options: [
-        { ar: "المترجم للغات العربية والمفسّر للغات الإنجليزية", en: "A compiler is for Arabic and an interpreter for English" },
-        { ar: "المفسّر يحوّل الكود إلى مخطط انسيابي", en: "An interpreter turns code into a flowchart" },
-        { ar: "لا فرق، فكلاهما اسمان لشيء واحد", en: "No difference; they are two names for one thing" },
-        { ar: "المترجم يحوّل البرنامج كاملاً مرة واحدة قبل التشغيل، والمفسّر يترجم وينفّذ سطراً سطراً", en: "A compiler converts the whole program once before running; an interpreter translates and runs line by line" }
+        { ar: "«مرتفعة»، لأن إكسل يقرّب القيم الحدّية إلى أعلى", en: "“high”, because Excel rounds borderline values up" },
+        { ar: "رسالة <span class=\"spec\">#VALUE!</span> لأن الشرط غامض", en: "<span class=\"spec\">#VALUE!</span>, because the condition is ambiguous" },
+        { ar: "«طبيعية»، لأن <span class=\"spec\">&gt;</span> لا تشمل القيمة نفسها، و<span class=\"spec\">&gt;=</span> تشملها", en: "“normal”, because <span class=\"spec\">&gt;</span> excludes the value itself while <span class=\"spec\">&gt;=</span> includes it" },
+        { ar: "خلية فارغة، لأن الشرط لم يتحقّق ولم ينتفِ", en: "An empty cell, because the condition neither held nor failed" }
+      ],
+      correct: 2,
+      why: { ar: "<span class=\"spec\">&gt;</span> تعني «أكبر من» حصراً، فالقيمة المساوية لا تحقّق الشرط. والفرق بينها وبين <span class=\"spec\">&gt;=</span> ليس تقنياً بل يحدّد حالات تُحوَّل وأخرى تُترك، ولهذا تُصاغ الشروط بدقّة قبل أن تُكتب.",
+             en: "<span class=\"spec\">&gt;</span> means strictly greater than, so an equal value fails the test. The gap between it and <span class=\"spec\">&gt;=</span> is not technical but decides which cases are referred and which are left — which is why conditions are phrased carefully before they are typed." }
+    },
+    {
+      q: { ar: "ما الفرق العملي بين فرز الجدول وتصفيته؟",
+           en: "What is the practical difference between sorting a table and filtering it?" },
+      options: [
+        { ar: "لا فرق، والتصفية اسم آخر للفرز", en: "No difference; filtering is another name for sorting" },
+        { ar: "الفرز يعيد ترتيب الصفوف فعلياً ويُحفظ، والتصفية تُخفي صفوفاً مؤقتاً وتُلغى بنقرة", en: "Sorting really reorders the rows and is saved; filtering hides rows temporarily and is cleared with one click" },
+        { ar: "الفرز يحذف الصفوف غير المطابقة، والتصفية تنسخها إلى ورقة جديدة", en: "Sorting deletes non-matching rows; filtering copies them to a new sheet" },
+        { ar: "الفرز للأرقام فقط والتصفية للنصوص فقط", en: "Sorting is for numbers only and filtering for text only" }
+      ],
+      correct: 1,
+      why: { ar: "الفرز تغيير دائم في ترتيب الصفوف يُحفظ مع الملف، والتصفية إخفاء مؤقت لا يحذف شيئاً. فإن كنت تريد النظر فقط فصفِّ ولا تفرز. وعلامة الورقة المصفّاة أن أرقام الصفوف تقفز وتظهر أيقونة القمع على رأس العمود.",
+             en: "A sort is a permanent change to row order saved with the file; a filter is a temporary hiding that deletes nothing. If you only want to look, filter rather than sort. A filtered sheet shows skipping row numbers and a funnel icon on the column header." }
+    },
+    {
+      q: { ar: "ما الخطر الأكبر في فرز عمود واحد بعد تحديده وحده؟",
+           en: "What is the biggest danger in sorting a single column after selecting it alone?" },
+      options: [
+        { ar: "بطء الملف عند الفتح", en: "The file becomes slow to open" },
+        { ar: "فقدان تنسيق الحدود والألوان", en: "Borders and colours are lost" },
+        { ar: "ظهور رسالة <span class=\"spec\">#REF!</span> في كل الصيغ", en: "<span class=\"spec\">#REF!</span> appears in every formula" },
+        { ar: "انفصال القيم عن بقية صفوفها، فتُنسب البيانات إلى أصحاب غير أصحابها", en: "The values are divorced from their rows, so data is attributed to the wrong records" }
       ],
       correct: 3,
-      why: { ar: "ولهذا تظهر أخطاء المترجم كلها قبل التشغيل، بينما تظهر أخطاء المفسّر عند بلوغ السطر الخاطئ. وبايثون لغة مفسّرة.", en: "That is why a compiler shows all errors before running, while an interpreter shows them when it reaches the faulty line. Python is interpreted." }
+      why: { ar: "هذا خطأ صامت: لا رسالة ولا لون، والجدول يبدو سليماً تماماً بينما صار كل اسم مقابل رقم غيره. ولهذا تُحدَّد خلية واحدة داخل الجدول ويُترك لإكسل أن يفرز الصفوف كاملة، أو يُحوَّل النطاق إلى جدول بـ<span class=\"kbd\">Ctrl + T</span> فيمنع الحالة أصلاً.",
+             en: "This is a silent error: no message, no colour, and the table looks perfectly fine while every name now sits against someone else's number. So select one cell inside the table and let Excel sort whole rows, or convert the range to a Table with <span class=\"kbd\">Ctrl + T</span>, which prevents the situation entirely." }
     },
     {
-      q: { ar: "برنامج يحسب معدل طالب ويعمل بلا توقف، لكنه يعطي 45 بدل 75. أي نوع من الأخطاء هذا؟", en: "A program computes a student average, runs without stopping, but returns 45 instead of 75. Which error type is this?" },
+      q: { ar: "تريد رسماً يُظهر اتجاه عدد المراجعين عبر ثلاثين يوماً. ما النوع المناسب؟",
+           en: "You want a chart showing the trend in patient numbers across thirty days. Which type fits?" },
       options: [
-        { ar: "خطأ صياغة Syntax Error", en: "Syntax error" },
-        { ar: "خطأ تشغيل Runtime Error", en: "Runtime error" },
-        { ar: "خطأ منطقي Logic Error", en: "Logic error" },
-        { ar: "ليس خطأ، بل عطل في الجهاز", en: "Not an error, but a hardware fault" }
-      ],
-      correct: 2,
-      why: { ar: "البرنامج يعمل ولا يتوقف، لكن النتيجة خاطئة — وهذا الخطأ المنطقي، وأخطرها لأنه لا يصرخ. ويُكتشف بالاختبار بحالات تُعرف نتيجتها سلفاً.", en: "The program runs and does not stop, but the result is wrong — a logic error, the most dangerous kind because it stays silent. It is caught by testing with cases whose answer you already know." }
-    },
-    {
-      q: { ar: "لماذا اختير بايثون لهذا المقرر تحديداً؟", en: "Why was Python chosen for this course?" },
-      options: [
-        { ar: "قواعدها قريبة من الإنجليزية البسيطة، ومفسّرة فترى نتيجة السطر فوراً، ومجانية مفتوحة المصدر، ومكتباتها واسعة", en: "Its rules are close to simple English, it is interpreted so you see a line's result at once, it is free and open source, and its libraries are broad" },
-        { ar: "لأنها أقدم لغة برمجة في العالم", en: "Because it is the world's oldest programming language" },
-        { ar: "لأنها اللغة الوحيدة التي يفهمها المعالج مباشرة", en: "Because it is the only language a processor understands directly" },
-        { ar: "لأنها لغة منخفضة المستوى قريبة من العتاد", en: "Because it is a low-level language close to the hardware" }
+        { ar: "خطي، لأن المحور زمن متصل والخط يُظهر الاتجاه", en: "Line, because the axis is continuous time and a line shows direction" },
+        { ar: "دائري، لأنه يعرض كل الأيام في دائرة واحدة", en: "Pie, because it shows all the days in one circle" },
+        { ar: "عمودي، لأن الأعمدة أوضح من الخطوط دائماً", en: "Column, because columns are always clearer than lines" },
+        { ar: "مبعثر، لأنه يعرض أكبر عدد من النقاط", en: "Scatter, because it shows the most data points" }
       ],
       correct: 0,
-      why: { ar: "لا لغة يفهمها المعالج مباشرة سوى لغة الآلة. وبايثون لغة عالية المستوى، أي بعيدة عن تفاصيل العتاد وقريبة من الإنسان.", en: "No language is understood directly by the processor except machine language. Python is high-level, meaning far from hardware detail and close to humans." }
+      why: { ar: "المخطط الخطي مخصّص للتغيّر عبر الزمن أو التسلسل، والعمودي للمقارنة بين فئات، والدائري لنسب قليلة من كلٍّ واحد مجموعه <span class=\"num\">100%</span>. والقاعدة: اختر النوع من السؤال لا من شكله على الشاشة — فالنوع الخاطئ يُخفي الحقيقة بدل أن يُظهرها.",
+             en: "A line chart is for change over time or sequence, a column chart for comparing categories, and a pie for a few shares of one whole that totals <span class=\"num\">100%</span>. The rule: choose the type from the question, not from how it looks — the wrong type hides the truth instead of showing it." }
+    },
+    {
+      q: { ar: "ماذا يعني الوسيط <span class=\"spec\">FALSE</span> في آخر <span class=\"spec\">VLOOKUP</span>، ولماذا يُنصح به دائماً؟",
+           en: "What does the final <span class=\"spec\">FALSE</span> argument in <span class=\"spec\">VLOOKUP</span> mean, and why is it always advised?" },
+      options: [
+        { ar: "يمنع ظهور رسائل الخطأ في الخلية", en: "It suppresses error messages in the cell" },
+        { ar: "يطلب مطابقة تامة؛ والمطابقة التقريبية تُرجع قيمة خاطئة بصمت بلا رسالة", en: "It demands an exact match; an approximate match returns a wrong value silently, with no message" },
+        { ar: "يجعل الدالة تبحث من أسفل الجدول إلى أعلاه", en: "It makes the function search from the bottom up" },
+        { ar: "يحوّل نتيجة الدالة إلى نص بدل رقم", en: "It converts the result to text instead of a number" }
+      ],
+      correct: 1,
+      why: { ar: "<span class=\"spec\">TRUE</span> تعني مطابقة تقريبية تفترض أن الجدول مفروز، وحين لا يكون كذلك تُرجع قيمة قريبة خاطئة دون أي تنبيه — وهذا أخطر من رسالة <span class=\"spec\">#N/A</span> الصريحة. اكتب <span class=\"spec\">FALSE</span> دائماً إلا إذا كنت تعرف تماماً لماذا تريد غيرها.",
+             en: "<span class=\"spec\">TRUE</span> means an approximate match that assumes a sorted table; when it is not sorted it returns a near — and wrong — value with no warning, which is more dangerous than an explicit <span class=\"spec\">#N/A</span>. Always write <span class=\"spec\">FALSE</span> unless you know exactly why you want otherwise." }
+    },
+    {
+      q: { ar: "دالة <span class=\"spec\">COUNTIF</span> على عمود مدن أعطت صفراً، مع أن سجلات «مكة» ظاهرة أمامك. ما أرجح السبب؟",
+           en: "A <span class=\"spec\">COUNTIF</span> on a city column returns zero although the “Mecca” records are visible in front of you. What is the likeliest cause?" },
+      options: [
+        { ar: "الدالة لا تعمل على النصوص العربية", en: "The function does not work with Arabic text" },
+        { ar: "عدد السجلات أكبر من الحدّ الذي تدعمه الدالة", en: "There are more records than the function supports" },
+        { ar: "الورقة اتجاهها من اليمين إلى اليسار", en: "The sheet is set right-to-left" },
+        { ar: "مسافة زائدة في طرف النص، فـ«مكة » لا تساوي «مكة»", en: "A stray space at the end of the text, so “Mecca ” does not equal “Mecca”" }
+      ],
+      correct: 3,
+      why: { ar: "المطابقة في دوال الشرط حرفية تماماً، والمسافة الزائدة حرف. وهذا أشهر سبب لنتيجة صفرية محيّرة في الملفات المستوردة، وعلاجه عمود مساعد بـ<span class=\"spec\">=TRIM(B2)</span> ثم البحث به. واتجاه الورقة لا علاقة له بالمطابقة إطلاقاً.",
+             en: "Matching in conditional functions is entirely literal, and a trailing space is a character. This is the commonest cause of a baffling zero in imported files; the cure is a helper column of <span class=\"spec\">=TRIM(B2)</span> to match against. Sheet direction has nothing to do with matching." }
     }
   ]
 

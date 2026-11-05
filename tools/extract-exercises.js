@@ -11,8 +11,9 @@ const LETTER = { word: 'w', ppt: 'p', excel: 'x', access: 'a' }[TRACK] || 'w';
 new Function(fs.readFileSync(path.join(dir, 'content.js'), 'utf8') + '\nglobalThis.__M = MODULES; globalThis.__C = COURSE;')();
 const MODULES = globalThis.__M, COURSE = globalThis.__C;
 
-const m4 = MODULES.find(m => m.id === 'm4');
-const units = m4.sections.filter(s => s.track === TRACK && /<div class="lab">/.test(s.html.ar));
+/* وحدات المسار قد تسكن أي موديول — تُجمع من كل الموديولات بحقل track */
+const units = MODULES.flatMap(m => m.sections)
+  .filter(s => s.track === TRACK && /<div class="lab">/.test(s.html.ar));
 
 function grab(html) {
   const i = html.indexOf('<div class="lab">');

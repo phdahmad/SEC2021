@@ -37,22 +37,28 @@ def annotate(src, dst, boxes, upscale=2.0, crop=None, quality=90):
         im = im.resize((int(im.width * f), int(im.height * f)), Image.LANCZOS)
         boxes = [(x0 * f, y0 * f, x1 * f, y1 * f, l) for x0, y0, x1, y1, l in boxes]
 
-    pad    = max(8, int(7 * f))
-    stroke = max(3, int(2.2 * f))
-    gap    = max(3, int(2.5 * f))
+    # سماكة الإطار والهوامش تُشتقّ من عرض الصورة الناتجة لا من معامل التكبير،
+    # فاللقطة الملتقطة بدقّة الشاشة الأصلية لا تُكبَّر ومع ذلك تحتاج خطاً أسمك.
+    g = max(1.0, im.width / 780.0)
+    stroke = max(3, int(2.2 * g))
+    gap    = max(3, int(2.5 * g))
+
+    # حجم الرقم يُشتقّ من ارتفاع الإطار نفسه، ثم يُقيَّد بحجم اللقطة حتى لا يطغى
+    hs = sorted(y1 - y0 for _, y0, _, y1, _ in boxes) or [60]
+    size = max(24, min(46, int(hs[len(hs) // 2] * 0.42)),
+               min(90, int(im.width * 0.030)))
+    limit = min(im.height * 0.45, im.width * 0.22) / (2 * 0.82)
+    fnt = font(max(16, int(min(size, limit))))
+    rad = int(fnt.size * 0.82)
+    # الهامش يتّسع للرقم كاملاً فلا يُقصّ عند حافة الصورة
+    pad = max(8, int(7 * g), rad + stroke + 2)
 
     canvas = Image.new("RGB", (im.width + pad * 2, im.height + pad * 2), (255, 255, 255))
     canvas.paste(im, (pad, pad))
     d = ImageDraw.Draw(canvas)
     d.rectangle([0, 0, canvas.width - 1, canvas.height - 1], outline=LINE,
-                width=max(2, int(1.5 * f)))
+                width=max(2, int(1.5 * g)))
 
-    # حجم الرقم يُشتقّ من ارتفاع الإطار نفسه، ثم يُقيَّد بحجم اللقطة حتى لا يطغى
-    hs = sorted(y1 - y0 for _, y0, _, y1, _ in boxes) or [60]
-    size = max(26, min(64, int(hs[len(hs) // 2] * 0.5)),
-               min(110, int(canvas.width * 0.036)))
-    limit = min(canvas.height * 0.45, canvas.width * 0.22) / (2 * 0.82)
-    fnt = font(max(16, int(min(size, limit))))
     placed = []
     for x0, y0, x1, y1, label in boxes:
         x0, y0 = x0 + pad - gap, y0 + pad - gap
@@ -77,7 +83,7 @@ def annotate(src, dst, boxes, upscale=2.0, crop=None, quality=90):
                 cx, cy = ax, ay
             placed.append((cx, cy))
             d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=AMBER,
-                      outline=(255, 255, 255), width=max(2, int(1.5 * f)))
+                      outline=(255, 255, 255), width=max(2, int(1.5 * g)))
             bb = d.textbbox((0, 0), label, font=fnt)
             d.text((cx - (bb[2] - bb[0]) / 2, cy - (bb[3] - bb[1]) / 2 - bb[1]),
                    label, font=fnt, fill=(255, 255, 255))
