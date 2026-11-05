@@ -632,6 +632,116 @@ const QUIZZES = {
       ],
       correct: 3,
       why: { ar: "كلمة مرور الفتح تشفّر الملف فعلياً، ولا توجد طريقة لاسترجاعه. احفظ كلمة المرور في مدير كلمات مرور موثوق قبل أن تشفّر لا بعده.", en: "An opening password genuinely encrypts the file, and there is no way to recover it. Save the password in a trusted password manager before you encrypt, not after." }
+    },
+    {
+      q: { ar: "مقدّم يريد أن تظهر نقاط شريحته الخمس واحدة واحدة كلما نقر. ما الذي يضبطه؟", en: "A presenter wants the five bullets on a slide to appear one at a time as he clicks. What does he set?" },
+      options: [
+        { ar: "انتقال «دفع» على الشريحة", en: "A Push transition on the slide" },
+        { ar: "حركة دخول على مربع النص مع «خيارات التأثير ← حسب الفقرة»", en: "An entrance animation on the text box with Effect Options → By Paragraph" },
+        { ar: "تخطيط «مقارنة» للشريحة", en: "The Comparison layout for the slide" },
+        { ar: "سمة جديدة من تبويب تصميم", en: "A new theme from the Design tab" }
+      ],
+      correct: 1,
+      why: { ar: "الانتقال يقع بين شريحتين، أما ظهور عناصر داخل الشريحة فحركة. و«حسب الفقرة» هي التي تفصل النقاط بعضها عن بعض بدل ظهور المربع كله دفعة واحدة.", en: "A transition happens between slides; revealing objects inside a slide is an animation. \"By Paragraph\" is what separates the bullets instead of the whole box appearing at once." }
+    },
+    {
+      q: { ar: "عرض من ثلاثين شريحة، وطُلب إضافة شعار الجهة في زاوية كل شريحة. ما أسرع طريقة صحيحة؟", en: "A thirty-slide deck, and a logo must appear in the corner of every slide. What is the fastest correct way?" },
+      options: [
+        { ar: "لصق الشعار في كل شريحة يدوياً", en: "Paste the logo into each slide by hand" },
+        { ar: "وضعه في الشريحة الأولى ثم «تطبيق على الكل» من تنسيق الخلفية", en: "Put it on slide one then click Apply to All in Format Background" },
+        { ar: "إدراجه مرة واحدة في الشريحة الرئيسة من تبويب «عرض»", en: "Insert it once into the Slide Master from the View tab" },
+        { ar: "إدراجه في جزء الملاحظات", en: "Insert it into the notes pane" }
+      ],
+      correct: 2,
+      why: { ar: "الشريحة الرئيسة هي القالب الذي ترث منه كل الشرائح، فما يوضع فيها يظهر في العرض كله مرة واحدة. و«تطبيق على الكل» في تنسيق الخلفية يفرض خلفية لا يضيف عنصراً.", en: "The slide master is the template every slide inherits from, so what you put there appears across the deck in one move. Apply to All in Format Background forces a background; it does not add an object." }
+    },
+    {
+      q: { ar: "أدرجت مخططاً عمودياً فظهر بأعمدة لا تمتّ لبياناتك بصلة. ما السبب؟", en: "You inserted a column chart and it shows columns unrelated to your data. Why?" },
+      options: [
+        { ar: "البيانات الافتراضية في نافذة البيانات لم تُستبدل ببياناتك", en: "The placeholder data in the data window was never replaced with yours" },
+        { ar: "نوع المخطط خاطئ ويجب أن يكون دائرياً", en: "The chart type is wrong and should be a pie" },
+        { ar: "السمة المختارة لا تدعم المخططات", en: "The chosen theme does not support charts" },
+        { ar: "الشريحة بتخطيط «فارغ»", en: "The slide uses the Blank layout" }
+      ],
+      correct: 0,
+      why: { ar: "كل مخطط يُدرج ومعه جدول بيانات افتراضي («الفئة 1»، «سلسلة 1»). المخطط يعرض ما في الجدول حرفياً، فما لم تستبدله ظلّ يعرض أرقاماً وهمية.", en: "Every inserted chart comes with placeholder data (Category 1, Series 1). The chart shows exactly what is in that table, so until you replace it, it displays invented numbers." }
+    },
+    {
+      q: { ar: "ما الفرق العملي بين «إخفاء شريحة» و«حذف شريحة»؟", en: "What is the practical difference between hiding a slide and deleting it?" },
+      options: [
+        { ar: "لا فرق، الاسمان لأمر واحد", en: "No difference; two names for one command" },
+        { ar: "الإخفاء يصغّر الشريحة والحذف يزيلها", en: "Hiding shrinks the slide, deleting removes it" },
+        { ar: "الإخفاء يمنع ظهورها أثناء العرض وتبقى في الملف، والحذف يزيلها نهائياً", en: "Hiding keeps it in the file but skips it during the show; deleting removes it for good" },
+        { ar: "الإخفاء يعمل في طريقة «عادي» فقط", en: "Hiding only works in Normal view" }
+      ],
+      correct: 2,
+      why: { ar: "الشريحة المخفية يظهر على رقمها خط مائل، وتظل محفوظة في الملف ويمكن إظهارها بالأمر نفسه. وهي الخيار الصحيح لشريحة احتياطية تريدها جاهزة إن سُئلت عنها.", en: "A hidden slide gets a diagonal line over its number, stays in the file, and comes back with the same command. It is the right choice for a backup slide you want ready in case you are asked." }
+    },
+    {
+      q: { ar: "صورة أُدرجت ثم سُحبت من المقبض الأوسط في ضلعها فخرجت الوجوه ممطوطة. ما القاعدة؟", en: "A picture was dragged by the middle handle on its side and the faces came out stretched. What is the rule?" },
+      options: [
+        { ar: "اسحب من مقابض الزوايا للمحافظة على نسبة العرض إلى الارتفاع", en: "Drag from the corner handles to keep the aspect ratio" },
+        { ar: "استخدم «تلوين الرسم» لإصلاح الشكل", en: "Use Graphics Fill to fix the shape" },
+        { ar: "غيّر تخطيط الشريحة", en: "Change the slide layout" },
+        { ar: "اضغط الصورة من «ضغط الصور»", en: "Compress it from Compress Pictures" }
+      ],
+      correct: 0,
+      why: { ar: "مقبض الضلع يشدّ الصورة في اتجاه واحد فتتشوّه، ومقبض الزاوية يغيّر البعدين معاً بالنسبة نفسها. وضغط الصور يقلّل حجم الملف ولا علاقة له بالتشوّه.", en: "A side handle stretches one dimension and distorts; a corner handle changes both in the same proportion. Compressing reduces file size and has nothing to do with distortion." }
+    },
+    {
+      q: { ar: "في عرض عربي ظهرت أسهم رسم SmartArt تتجه من اليسار إلى اليمين. ما العلاج الصحيح؟", en: "In an Arabic deck, a SmartArt graphic's arrows run left to right. What is the correct fix?" },
+      options: [
+        { ar: "إعادة كتابة النصوص بترتيب معكوس", en: "Retype the labels in reverse order" },
+        { ar: "قلب كل شكل يدوياً بـ«انعكاس أفقي»", en: "Flip each shape by hand with Flip Horizontal" },
+        { ar: "حذف الرسم وإعادة إدراجه", en: "Delete the graphic and insert it again" },
+        { ar: "زر «من اليمين إلى اليسار» في تبويب «تصميم SmartArt»", en: "The Right to Left button on the SmartArt Design tab" }
+      ],
+      correct: 3,
+      why: { ar: "الاتجاه خاصية للرسم كله، وله زر مخصّص يقلبه مع أسهمه وترتيب حركاته. أما عكس الترتيب يدوياً فيصلح المظهر ويفسد منطق التسلسل وحركة «واحدة تلو الأخرى».", en: "Direction is a property of the whole graphic with a button made for it, flipping the arrows and the animation order together. Reversing the labels by hand fixes the look and breaks the logic of the sequence and the One-by-One animation." }
+    },
+    {
+      q: { ar: "ما الذي يجعل حركة تبدأ تلقائياً بانتهاء الحركة التي قبلها دون نقر؟", en: "What makes an animation start by itself when the previous one ends, with no click?" },
+      options: [
+        { ar: "«مع السابق»", en: "With Previous" },
+        { ar: "«بعد السابق»", en: "After Previous" },
+        { ar: "«عند النقر»", en: "On Click" },
+        { ar: "«تطبيق على الكل»", en: "Apply to All" }
+      ],
+      correct: 1,
+      why: { ar: "«مع السابق» تبدأ في اللحظة نفسها فتتزامن معها، و«بعد السابق» تنتظر انتهاءها ثم تبدأ. والفرق بينهما هو ما يصنع التتابع السلس أو التزامن المقصود.", en: "With Previous starts at the same moment and runs alongside; After Previous waits for the previous one to finish. That difference is what creates a smooth sequence or a deliberate simultaneity." }
+    },
+    {
+      q: { ar: "طُلب في الاختبار إضافة شريحة بتخطيط «مقارنة»، فأضاف الطالب شريحة بـ«عنوان ومحتوى». أين الخطأ؟", en: "An exam asks for a slide with the Comparison layout, and the student adds a Title and Content one. Where did it go wrong?" },
+      options: [
+        { ar: "التخطيط لا يُختار إلا عند إنشاء العرض", en: "A layout can only be chosen when the deck is created" },
+        { ar: "تخطيط «مقارنة» غير موجود في باوربوينت", en: "There is no Comparison layout in PowerPoint" },
+        { ar: "نقر الجزء العلوي من زر «شريحة جديدة» بدل الجزء السفلي الذي يفتح معرض التخطيطات", en: "He clicked the top half of New Slide instead of the bottom half that opens the layout gallery" },
+        { ar: "يجب تغيير السمة أولاً", en: "The theme must be changed first" }
+      ],
+      correct: 2,
+      why: { ar: "أعلى الزر يضيف شريحة بالتخطيط الافتراضي مباشرة، وأسفله يفتح المعرض. ولو أضافها بالخطأ فالعلاج «الصفحة الرئيسية ← تخطيط» لتغيير تخطيط الشريحة الموجودة.", en: "The top half adds a slide with the default layout immediately; the bottom half opens the gallery. If it is already added, the fix is Home → Layout to change the existing slide's layout." }
+    },
+    {
+      q: { ar: "عرض يُشغَّل على شاشة في بهو مبنى، ويجب أن يتنقّل وحده ويتكرّر بلا نهاية. ما الإعدادان المطلوبان؟", en: "A deck plays on a lobby screen and must advance by itself and repeat endlessly. Which two settings are needed?" },
+      options: [
+        { ar: "«بعد» بتوقيت في تبويب انتقالات + «تنفيذ حلقة مستمرة» في إعداد عرض الشرائح", en: "After with a time on the Transitions tab + Loop continuously in Set Up Slide Show" },
+        { ar: "«من البداية» + «عرض المقدّم»", en: "From Beginning + Presenter View" },
+        { ar: "«إخفاء شريحة» + «تطبيق على الكل»", en: "Hide Slide + Apply to All" },
+        { ar: "حفظ بصيغة PDF + تشغيل تلقائي", en: "Save as PDF + autoplay" }
+      ],
+      correct: 0,
+      why: { ar: "التوقيت في «انتقالات ← بعد» هو ما ينقل الشريحة بلا نقر، و«تنفيذ حلقة مستمرة حتى Esc» في «إعداد عرض الشرائح» هو ما يعيده إلى أوله. الإعدادان لازمان معاً، ولا يكفي أحدهما.", en: "The timing in Transitions → After is what advances slides without a click, and Loop continuously until 'Esc' in Set Up Slide Show is what returns it to the start. Both are needed; neither alone is enough." }
+    },
+    {
+      q: { ar: "لماذا يُنصح بتصدير نسخة PDF من كل عرض قبل تقديمه على جهاز آخر؟", en: "Why export a PDF copy of every deck before presenting it on another machine?" },
+      options: [
+        { ar: "لأن PDF يعرض الحركات والانتقالات بجودة أعلى", en: "Because PDF plays animations and transitions better" },
+        { ar: "لأن PDF يصغّر حجم الملف إلى النصف دائماً", en: "Because PDF always halves the file size" },
+        { ar: "لأن PDF يسمح بتعديل الشرائح على أي جهاز", en: "Because PDF lets you edit the slides anywhere" },
+        { ar: "لأن الخط غير المثبّت على جهاز العرض يسقط فيختلّ الشكل، و PDF يحفظ الشكل كما صُمّم", en: "Because a font not installed on the presenting machine is dropped and the layout breaks, while PDF preserves the design" }
+      ],
+      correct: 3,
+      why: { ar: "الخطوط ليست داخل الملف بل على الجهاز، فإن غابت استبدلها النظام بغيرها فتزحف الأسطر وتتغيّر المقاسات. و PDF يحتفظ بشكل الصفحة، وإن كان يفقد الحركات — ولهذا هو نسخة احتياطية لا بديل.", en: "Fonts live on the machine, not inside the file; if one is missing the system substitutes another and lines shift and sizes change. PDF preserves the page's appearance, though it loses the animations — which is why it is a fallback, not a replacement." }
     }
   ],
 

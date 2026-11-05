@@ -49,8 +49,9 @@ def annotate(src, dst, boxes, upscale=2.0, crop=None, quality=90):
 
     # حجم الرقم يُشتقّ من ارتفاع الإطار نفسه، ثم يُقيَّد بحجم اللقطة حتى لا يطغى
     hs = sorted(y1 - y0 for _, y0, _, y1, _ in boxes) or [60]
-    size = max(26, min(64, int(hs[len(hs) // 2] * 0.5)))
-    limit = min(canvas.width * 0.16, canvas.height * 0.50) / (2 * 0.82)
+    size = max(26, min(64, int(hs[len(hs) // 2] * 0.5)),
+               min(110, int(canvas.width * 0.036)))
+    limit = min(canvas.height * 0.45, canvas.width * 0.22) / (2 * 0.82)
     fnt = font(max(16, int(min(size, limit))))
     placed = []
     for x0, y0, x1, y1, label in boxes:
