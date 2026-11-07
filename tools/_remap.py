@@ -15,26 +15,41 @@ import numpy as np, cv2
 TRACKS = {
  'word': ('_shots', {
     'home-paragraph': 'word-home', 'home-font': 'word-home', 'home-editing': 'word-home',
-    'home-styles': 'word-home', 'status-language': 'word-home',
+    'home-styles': 'word-home', 'status-language': 'word-status',
     'ins-table-illus': 'word-insert', 'ins-header-footer': 'word-insert',
     'design-page-bg': 'word-design', 'layout-page-setup': 'word-layout',
     'view-show': 'word-view', 'ref-toc': 'word-references',
     'review-proofing': 'word-review', 'review-track': 'word-review',
     'review-comments': 'word-review', 'review-protect': 'word-review',
-    'mail-start': 'word-mailings', 'mail-preview-finish': 'word-mailings'}),
+    'mail-start': 'word-mailings', 'mail-preview-finish': 'word-mailings',
+    # حالات خاصة التُقطت لاحقاً (نوافذ وقوائم وتبويبات سياقية)
+    'dlg-replace': 'word-replace', 'ins-table-grid': 'word-tablegrid',
+    'tbl-merge-size': 'word-tablelayout', 'tbl-data': 'word-tablelayout',
+    'tbl-styles': 'word-tabledesign', 'print-settings': 'word-print',
+    'protect-pane-2': 'word-protect2', 'protect-pane-1': 'word-protect1'}),
  'xl': ('_shots_xl', {
     'ribbon-home': 'xl-home', 'ribbon-insert': 'xl-insert', 'ribbon-pagelayout': 'xl-pagelayout',
     'ribbon-formulas': 'xl-formulas', 'ribbon-data': 'xl-data', 'ribbon-review': 'xl-review',
-    'ribbon-view': 'xl-view'}),
+    'ribbon-view': 'xl-view',
+    'window': 'xl-window', 'bottombar': 'xl-window', 'cf-menu': 'xl-cfmenu',
+    'table-dialog': 'xl-tabledialog', 'ribbon-tabledesign': 'xl-tabledesign',
+    'ribbon-chartdesign': 'xl-chartdesign'}),
  'ppt': ('_shots_ppt', {
     'statusbar': 'ppt-home', 'quickaccess': 'ppt-home', 'home-slides': 'ppt-home',
     'view-modes': 'ppt-view', 'view-masters': 'ppt-view',
     'design-themes': 'ppt-design', 'design-left': 'ppt-design',
     'insert-wide': 'ppt-insert', 'transitions-gallery': 'ppt-transitions',
     'transitions-timing': 'ppt-transitions', 'anim-add': 'ppt-animations',
-    'slideshow': 'ppt-slideshow'}),
+    'slideshow': 'ppt-slideshow',
+    'window-full': 'ppt-home', 'layout-gallery': 'ppt-layouts', 'bg-styles': 'ppt-bgstyles',
+    'content-icons': 'ppt-content', 'smartart-dialog': 'ppt-smartart-dialog',
+    'smartart-create': 'ppt-smartart', 'smartart-styles': 'ppt-smartart'}),
 }
-BOTTOM = {'status-language', 'statusbar'}
+BOTTOM = {'status-language', 'statusbar', 'bottombar'}
+# مصادر ليست شريطاً: يُبحث عنها في الشاشة كلها
+FULL = {'dlg-replace', 'ins-table-grid', 'print-settings', 'protect-pane-2', 'protect-pane-1',
+        'window', 'cf-menu', 'table-dialog', 'window-full', 'layout-gallery', 'bg-styles',
+        'content-icons', 'smartart-dialog'}
 
 _cache = {}
 def gray(p):
@@ -94,20 +109,25 @@ def refine_box(old, new, box, guess, s):
         return 0.0, gx, gy
     return sc, xa + loc[0], ya + loc[1]
 
-def run(track):
+def run(track, only=None):
+    """only: قائمة مصادر قديمة تُعاد معالجتها وتُدمج في الملف القائم (يحفظ التصحيحات اليدوية)."""
     modname, mapping = TRACKS[track]
     m = importlib.import_module(modname)
     out, weak = {}, []
+    if only:
+        try: out = json.load(open('_remap_%s.json' % track))
+        except FileNotFoundError: pass
     s_by_src = {}
     for src, dst, crop, boxes in m.JOBS:
-        if src not in mapping:
+        if src not in mapping or (only and src not in only):
             continue
-        old = gray(m.S % src)
+        old = gray(m.SRC(src) if hasattr(m, 'SRC') else m.S % src)
         newname = mapping[src]
         new = gray('shots_png/%s.png' % newname)
         cx0, cy0, cx1, cy1 = crop if crop else (0, 0, old.shape[1], old.shape[0])
         tpl = old[cy0:cy1, cx0:cx1]
-        band = (new.shape[0] - 260, new.shape[0]) if src in BOTTOM else (0, 760)
+        band = ((new.shape[0] - 260, new.shape[0]) if src in BOTTOM else
+                (0, new.shape[0]) if src in FULL else (0, 760))
         sc, s, ox, oy = locate(tpl, new, band, s_by_src.get(src))
         s_by_src.setdefault(src, s)
         nb = []
@@ -130,4 +150,4 @@ def run(track):
     print('\n%d شكلاً، منها %d تحتاج فحصاً بالعين' % (len(out), len(weak)))
 
 if __name__ == '__main__':
-    run(sys.argv[1])
+    run(sys.argv[1], sys.argv[2:] or None)
