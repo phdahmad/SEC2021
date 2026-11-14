@@ -129,12 +129,32 @@
   table.tools th{font-size:.84rem;color:#fff;font-weight:700}
   @media (max-width:520px){table.tools{font-size:.82rem}table.tools th,table.tools td{padding:8px 6px}}
   .table-wrap{overflow-x:auto}
+  .wk{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-block-start:10px}
+  .wk .k{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-deep);margin-block:10px 6px}
+  .wk .k:first-child{margin-block-start:0}
+  .wk .s{inline-size:22px;block-size:22px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--font-lat);font-size:.78rem;flex:none}
+  html[data-theme="dark"] .wk .s{color:#0E1926}
+  .wk .ref,.wk .sent{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-family:"Times New Roman",Times,serif;font-size:1rem!important;line-height:1.75;margin:0!important;overflow-wrap:anywhere}
+  .wk .ref,.wk .sent.ltr{text-align:left}
+  .wk .ref{padding-inline-start:calc(14px + 2.2em);text-indent:-2.2em}
+  .wk .sent[dir="rtl"]{font-family:var(--font-ar-text);text-align:right}
+  .wk mark{background:rgba(200,118,26,.22);color:inherit;border-radius:3px;padding:1px 3px;font-family:"Times New Roman",Times,serif}
+  .wk .p{border-block-end:3px solid;padding-block-end:1px}
+  .wk .a,.legend .a{border-color:#31558A;background-color:#31558A}
+  .wk .y,.legend .y{border-color:#C8761A;background-color:#C8761A}
+  .wk .t,.legend .t{border-color:#1D6B3F;background-color:#1D6B3F}
+  .wk .u,.legend .u{border-color:#8A5A9E;background-color:#8A5A9E}
+  .wk .p{background-color:transparent!important}
+  .legend{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;margin-block-start:8px;font-size:.84rem;color:var(--muted)}
+  .legend li{display:flex;align-items:center;gap:6px}
+  .legend i{inline-size:14px;block-size:4px;border-radius:2px;display:inline-block}
+  table.tools a{font-weight:700}
   .fine{font-size:.88rem!important;color:var(--muted);margin-block:10px 0!important}
   .back{margin-block:30px 6px;display:flex;gap:10px;flex-wrap:wrap}
   .back a{text-decoration:none}
 
   @media (max-width:860px){
-    .pair,.marks,.outcomes ul,.apa{grid-template-columns:1fr}
+    .pair,.marks,.outcomes ul,.apa,.wk{grid-template-columns:1fr}
     .stage{grid-template-columns:auto 1fr}
     .stage .dl{grid-column:2;grid-row:auto;justify-items:start}
     .dlrow{justify-content:flex-start}
@@ -323,16 +343,46 @@
       <p data-l="en"><strong>And the conclusion?</strong> A section like any other: its title uses Heading 1 and starts a new page. It has no special formatting.</p>
     </div>
   </div>
+  <div class="card apa-c worked" style="margin-block-start:14px">
+    <h3><span data-l="ar">مثال كامل: من المرجع إلى الجملة</span><span data-l="en">A full example: from the reference to the sentence</span></h3>
+    <p data-l="ar">مرجع يعرفه كل طالب معلوماتية صحية: استراتيجية منظمة الصحة العالمية للصحة الرقمية. هكذا يُكتب في قائمة المراجع، وهكذا يُذكر في النص.</p>
+    <p data-l="en">A reference every Health Informatics student knows: the World Health Organization's strategy on digital health. This is how it is written in the reference list, and how it is cited in the text.</p>
+    <div class="wk">
+      <div>
+        <b class="k"><span class="s">1</span><span data-l="ar">في قائمة المراجع</span><span data-l="en">In the reference list</span></b>
+        <p class="ref ltr"><span class="p a">World Health Organization.</span> <span class="p y">(2021).</span> <span class="p t"><em>Global strategy on digital health 2020–2025</em>.</span> <span class="p u">https://www.who.int/publications/i/item/9789240020924</span></p>
+        <ul class="legend">
+          <li><i class="a"></i><span data-l="ar">المؤلف: شخص أو جهة</span><span data-l="en">Author: a person or an organization</span></li>
+          <li><i class="y"></i><span data-l="ar">السنة بين قوسين</span><span data-l="en">Year in parentheses</span></li>
+          <li><i class="t"></i><span data-l="ar">العنوان، مائلاً</span><span data-l="en">Title, in italics</span></li>
+          <li><i class="u"></i><span data-l="ar">الرابط</span><span data-l="en">Link</span></li>
+        </ul>
+        <p class="fine" data-l="ar">لاحظ المسافة المعلّقة: السطر الأول على الهامش والثاني مُزاح.</p>
+        <p class="fine" data-l="en">Note the hanging indent: first line at the margin, second line indented.</p>
+      </div>
+      <div>
+        <b class="k"><span class="s">2</span><span data-l="ar">في النص: الاقتباس بعد المعلومة</span><span data-l="en">In the text: citation after the information</span></b>
+        <p class="sent ltr">Digital tools can make health services more accessible and efficient <mark>(World Health Organization, 2021)</mark>.</p>
+        <b class="k"><span class="s">3</span><span data-l="ar">في النص: المؤلف جزء من الجملة</span><span data-l="en">In the text: the author as part of the sentence</span></b>
+        <p class="sent ltr">The <mark>World Health Organization (2021)</mark> calls on countries to use digital tools in health services.</p>
+        <b class="k"><span class="s">4</span><span data-l="ar">في تقرير عربي</span><span data-l="en">In an Arabic report</span></b>
+        <p class="sent" dir="rtl" lang="ar">تدعو منظمة الصحة العالمية <mark class="ltr">(World Health Organization, 2021)</mark> الدول إلى توظيف الأدوات الرقمية في الخدمات الصحية.</p>
+        <p class="fine" data-l="ar">في الحالات الثلاث يكفي في النص المؤلف والسنة، والتفاصيل كلها في قائمة المراجع.</p>
+        <p class="fine" data-l="en">In all three, the text needs only the author and the year; the full details are in the reference list.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="card apa-c" style="margin-block-start:14px">
     <h3><span data-l="ar">أدوات وورد للمراجع، وأين درستها</span><span data-l="en">Word's tools for references, and where you studied them</span></h3>
     <div class="table-wrap"><table class="tools">
       <thead><tr><th><span data-l="ar">ماذا تريد؟</span><span data-l="en">What you want</span></th><th><span data-l="ar">أين في وورد</span><span data-l="en">Where in Word</span></th><th><span data-l="ar">في الدروس</span><span data-l="en">In the lessons</span></th></tr></thead>
       <tbody>
-        <tr><td><span data-l="ar">ترتيب المراجع أبجدياً</span><span data-l="en">Sort the references alphabetically</span></td><td><span data-l="ar">الشريط الرئيسي ← فقرة ← «فرز»</span><span data-l="en">Home, Paragraph, Sort</span></td><td><span data-l="ar">وورد 10، الخطوة 17</span><span data-l="en">Word 10, step 17</span></td></tr>
-        <tr><td><span data-l="ar">المسافة البادئة المعلّقة</span><span data-l="en">The hanging indent</span></td><td><span data-l="ar">نافذة «فقرة» ← «خاصة: معلّقة»</span><span data-l="en">Paragraph dialog, Special: Hanging</span></td><td><span data-l="ar">وورد 10، الخطوة 18</span><span data-l="en">Word 10, step 18</span></td></tr>
-        <tr><td><span data-l="ar">اختيار أسلوب APA</span><span data-l="en">Choose the APA style</span></td><td><span data-l="ar">مراجع ← المراجع والاقتباسات ← «النمط»</span><span data-l="en">References, Citations and Bibliography, Style</span></td><td><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></td></tr>
-        <tr><td><span data-l="ar">إدراج اقتباس وحفظ بيانات مصدره</span><span data-l="en">Insert a citation and save its source</span></td><td><span data-l="ar">مراجع ← «إدراج اقتباس» ← «إضافة مصدر جديد»</span><span data-l="en">References, Insert Citation, Add New Source</span></td><td><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></td></tr>
-        <tr><td><span data-l="ar">قائمة مراجع تلقائية تتحدّث</span><span data-l="en">An automatic, updatable reference list</span></td><td><span data-l="ar">مراجع ← «المراجع»</span><span data-l="en">References, Bibliography</span></td><td><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></td></tr>
+        <tr><td><span data-l="ar">ترتيب المراجع أبجدياً</span><span data-l="en">Sort the references alphabetically</span></td><td><span data-l="ar">الشريط الرئيسي ← فقرة ← «فرز»</span><span data-l="en">Home, Paragraph, Sort</span></td><td><a href="index.html#/m7/w10-s17"><span data-l="ar">وورد 10، الخطوة 17</span><span data-l="en">Word 10, step 17</span></a></td></tr>
+        <tr><td><span data-l="ar">المسافة البادئة المعلّقة</span><span data-l="en">The hanging indent</span></td><td><span data-l="ar">نافذة «فقرة» ← «خاصة: معلّقة»</span><span data-l="en">Paragraph dialog, Special: Hanging</span></td><td><a href="index.html#/m7/w10-s18"><span data-l="ar">وورد 10، الخطوة 18</span><span data-l="en">Word 10, step 18</span></a></td></tr>
+        <tr><td><span data-l="ar">اختيار أسلوب APA</span><span data-l="en">Choose the APA style</span></td><td><span data-l="ar">مراجع ← المراجع والاقتباسات ← «النمط»</span><span data-l="en">References, Citations and Bibliography, Style</span></td><td><a href="index.html#/m7/w10-s20"><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></a></td></tr>
+        <tr><td><span data-l="ar">إدراج اقتباس وحفظ بيانات مصدره</span><span data-l="en">Insert a citation and save its source</span></td><td><span data-l="ar">مراجع ← «إدراج اقتباس» ← «إضافة مصدر جديد»</span><span data-l="en">References, Insert Citation, Add New Source</span></td><td><a href="index.html#/m7/w10-s20"><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></a></td></tr>
+        <tr><td><span data-l="ar">قائمة مراجع تلقائية تتحدّث</span><span data-l="en">An automatic, updatable reference list</span></td><td><span data-l="ar">مراجع ← «المراجع»</span><span data-l="en">References, Bibliography</span></td><td><a href="index.html#/m7/w10-s20"><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></a></td></tr>
       </tbody>
     </table></div>
     <p class="fine" data-l="ar">وورد ينسّق المراجع من البيانات التي تدخلها أنت، فإن أدخلتها ناقصة خرجت ناقصة. وبعض إصداراته تعرض الإصدار السادس من APA لا السابع. راجع الناتج دائماً على القواعد الخمس.</p>

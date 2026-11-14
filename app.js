@@ -517,7 +517,15 @@ function route() {
 
   const target = parts[1] ? document.getElementById(parts[1]) : null;
   if (target) {
-    target.scrollIntoView({ block: "start" });
+    /* قفزة فورية، ثم تثبيت الموضع بعد تحميل الصور المؤجّلة التي تزيح الصفحة */
+    const here = location.hash;
+    const jump = function () { if (location.hash === here) target.scrollIntoView({ block: /-s\d+$/.test(parts[1]) ? "center" : "start", behavior: "instant" }); };
+    jump();
+    [250, 700, 1500].forEach(function (ms) { setTimeout(jump, ms); });
+    if (/-s\d+$/.test(parts[1])) {
+      target.classList.add("step-target");
+      setTimeout(function () { target.classList.remove("step-target"); }, 4000);
+    }
   } else {
     window.scrollTo(0, 0);
   }
