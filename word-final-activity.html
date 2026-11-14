@@ -114,11 +114,27 @@
   .linkbtn{font:inherit;font-size:.84rem;background:none;border:0;color:var(--ink);text-decoration:underline;cursor:pointer;padding:6px}
 
   .tpl-note{margin-block-start:26px}
+  .apa{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .apa-c{padding:16px 20px}
+  .apa-c h3{font-size:1.08rem;margin-block-end:8px}
+  html[lang="en"] .apa-c h3{font-family:var(--font-lat)}
+  .apa-c p,.apa-c ol{font-size:.95rem;margin-block-end:8px}
+  .apa-c ol li{margin-block-end:4px}
+  .ex{margin:10px 0 0;display:grid;gap:4px}
+  .ex dt{font-size:.82rem;color:var(--muted);margin-block-start:6px}
+  .ex dd{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-family:"Times New Roman",Times,serif;font-size:.98rem;line-height:1.6;text-align:left;overflow-wrap:anywhere}
+  table.tools{inline-size:100%;border-collapse:collapse;font-size:.92rem}
+  table.tools th,table.tools td{text-align:start;padding:9px 10px;border-block-end:1px solid var(--line);vertical-align:top}
+  table.tools{min-inline-size:0}
+  table.tools th{font-size:.84rem;color:#fff;font-weight:700}
+  @media (max-width:520px){table.tools{font-size:.82rem}table.tools th,table.tools td{padding:8px 6px}}
+  .table-wrap{overflow-x:auto}
+  .fine{font-size:.88rem!important;color:var(--muted);margin-block:10px 0!important}
   .back{margin-block:30px 6px;display:flex;gap:10px;flex-wrap:wrap}
   .back a{text-decoration:none}
 
   @media (max-width:860px){
-    .pair,.marks,.outcomes ul{grid-template-columns:1fr}
+    .pair,.marks,.outcomes ul,.apa{grid-template-columns:1fr}
     .stage{grid-template-columns:auto 1fr}
     .stage .dl{grid-column:2;grid-row:auto;justify-items:start}
     .dlrow{justify-content:flex-start}
@@ -155,6 +171,7 @@
       <a href="#files"><b>2</b><span data-l="ar">حمّل وتدرّب</span><span data-l="en">Download and practise</span></a>
       <a href="#track"><b>3</b><span data-l="ar">تابع تقدّمك</span><span data-l="en">Track your progress</span></a>
       <a href="#submit"><b>4</b><span data-l="ar">قائمة ما قبل التسليم</span><span data-l="en">Pre-submission checklist</span></a>
+      <a href="#apa"><b>5</b><span data-l="ar">APA 7 والمراجع</span><span data-l="en">APA 7 and references</span></a>
     </nav>
     <div class="meta">
       <span class="chip amber"><span data-l="ar">نحو 45 دقيقة</span><span data-l="en">About 45 minutes</span></span>
@@ -265,6 +282,61 @@
   <div class="card submit">
     <div class="submit-head"><b class="t" style="margin:0"><span data-l="ar">قائمة التسليم</span><span data-l="en">Submission Checklist</span></b><span class="gscore" id="subScore"></span><button class="linkbtn" id="resetSub" type="button"></button></div>
     <ul class="checks" id="subList"></ul>
+  </div>
+
+  <h2 class="sec" id="apa"><span data-l="ar">APA 7 والمراجع في وورد</span><span data-l="en">APA 7 and references in Word</span></h2>
+  <p class="sub" data-l="ar">أكثر أخطاء التقارير في المراجع. هذا ما تحتاج أن تعرفه عنها، وأين تجده في وورد.</p>
+  <p class="sub" data-l="en">Most report mistakes are in the references. Here is what you need to know about them, and where to find it in Word.</p>
+  <div class="apa">
+    <div class="card apa-c">
+      <h3><span data-l="ar">ما APA 7؟</span><span data-l="en">What is APA 7?</span></h3>
+      <p data-l="ar">أسلوب للكتابة العلمية تصدره الجمعية الأمريكية لعلم النفس <span class="en-inline ltr">(American Psychological Association)</span>، وهذا إصداره السابع. يحدّد شكل الصفحة والعناوين والجداول، وطريقة ذكر المصادر. تعتمده كثير من كليات الصحة، وعليه بُني قالب قسمك.</p>
+      <p data-l="en">A style for scientific writing published by the American Psychological Association; this is its seventh edition. It sets the look of the page, headings and tables, and how sources are cited. Many health colleges use it, and your department's template is built on it.</p>
+      <p data-l="ar">فيه جزءان يهمّانك: <strong>الاقتباس داخل النص</strong>، و<strong>قائمة المراجع</strong> في آخر التقرير.</p>
+      <p data-l="en">Two parts matter to you: the <strong>in-text citation</strong> and the <strong>reference list</strong> at the end of the report.</p>
+      <dl class="ex">
+        <dt><span data-l="ar">في النص: المؤلف والسنة</span><span data-l="en">In the text: author and year</span></dt>
+        <dd class="ltr">(Davis, 1989)</dd>
+        <dt><span data-l="ar">ثلاثة مؤلفين فأكثر</span><span data-l="en">Three or more authors</span></dt>
+        <dd class="ltr">(Venkatesh et al., 2003)</dd>
+        <dt><span data-l="ar">في قائمة المراجع</span><span data-l="en">In the reference list</span></dt>
+        <dd class="ltr">Davis, F. D. (1989). Perceived usefulness, perceived ease of use, and user acceptance of information technology. <em>MIS Quarterly, 13</em>(3), 319–340. https://doi.org/10.2307/249008</dd>
+      </dl>
+    </div>
+    <div class="card apa-c">
+      <h3><span data-l="ar">قائمة المراجع: خمس قواعد</span><span data-l="en">The reference list: five rules</span></h3>
+      <ol data-l="ar">
+        <li>كل اقتباس في النص له مرجع في القائمة، وكل مرجع في القائمة مذكور في النص.</li>
+        <li>القائمة في صفحة جديدة بعد الخاتمة، بعنوان بنمط «العنوان 1»، وبعدها الملاحق.</li>
+        <li>مرتّبة أبجدياً باسم المؤلف الأول، بلا ترقيم.</li>
+        <li>بمسافة بادئة معلّقة <span class="num">1.27</span> سم: السطر الأول على الهامش، وما بعده مُزاح.</li>
+        <li>اسم المجلة ورقم المجلد، أو عنوان الكتاب، بخط مائل.</li>
+      </ol>
+      <ol data-l="en">
+        <li>Every citation in the text has an entry in the list, and every entry is cited in the text.</li>
+        <li>The list starts a new page after the conclusion, under a Heading 1 title, with appendices after it.</li>
+        <li>In alphabetical order by first author, with no numbering.</li>
+        <li>With a 0.5 inch (1.27 cm) hanging indent: first line at the margin, the rest indented.</li>
+        <li>The journal name and volume number, or the book title, in italics.</li>
+      </ol>
+      <p data-l="ar"><strong>والخاتمة؟</strong> قسم عادي مثل غيره: عنوانه بنمط «العنوان 1» ويبدأ صفحة جديدة. لا تنسيق خاص بها.</p>
+      <p data-l="en"><strong>And the conclusion?</strong> A section like any other: its title uses Heading 1 and starts a new page. It has no special formatting.</p>
+    </div>
+  </div>
+  <div class="card apa-c" style="margin-block-start:14px">
+    <h3><span data-l="ar">أدوات وورد للمراجع، وأين درستها</span><span data-l="en">Word's tools for references, and where you studied them</span></h3>
+    <div class="table-wrap"><table class="tools">
+      <thead><tr><th><span data-l="ar">ماذا تريد؟</span><span data-l="en">What you want</span></th><th><span data-l="ar">أين في وورد</span><span data-l="en">Where in Word</span></th><th><span data-l="ar">في الدروس</span><span data-l="en">In the lessons</span></th></tr></thead>
+      <tbody>
+        <tr><td><span data-l="ar">ترتيب المراجع أبجدياً</span><span data-l="en">Sort the references alphabetically</span></td><td><span data-l="ar">الشريط الرئيسي ← فقرة ← «فرز»</span><span data-l="en">Home, Paragraph, Sort</span></td><td><span data-l="ar">وورد 10، الخطوة 17</span><span data-l="en">Word 10, step 17</span></td></tr>
+        <tr><td><span data-l="ar">المسافة البادئة المعلّقة</span><span data-l="en">The hanging indent</span></td><td><span data-l="ar">نافذة «فقرة» ← «خاصة: معلّقة»</span><span data-l="en">Paragraph dialog, Special: Hanging</span></td><td><span data-l="ar">وورد 10، الخطوة 18</span><span data-l="en">Word 10, step 18</span></td></tr>
+        <tr><td><span data-l="ar">اختيار أسلوب APA</span><span data-l="en">Choose the APA style</span></td><td><span data-l="ar">مراجع ← المراجع والاقتباسات ← «النمط»</span><span data-l="en">References, Citations and Bibliography, Style</span></td><td><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></td></tr>
+        <tr><td><span data-l="ar">إدراج اقتباس وحفظ بيانات مصدره</span><span data-l="en">Insert a citation and save its source</span></td><td><span data-l="ar">مراجع ← «إدراج اقتباس» ← «إضافة مصدر جديد»</span><span data-l="en">References, Insert Citation, Add New Source</span></td><td><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></td></tr>
+        <tr><td><span data-l="ar">قائمة مراجع تلقائية تتحدّث</span><span data-l="en">An automatic, updatable reference list</span></td><td><span data-l="ar">مراجع ← «المراجع»</span><span data-l="en">References, Bibliography</span></td><td><span data-l="ar">وورد 10، الخطوة 20</span><span data-l="en">Word 10, step 20</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="fine" data-l="ar">وورد ينسّق المراجع من البيانات التي تدخلها أنت، فإن أدخلتها ناقصة خرجت ناقصة. وبعض إصداراته تعرض الإصدار السادس من APA لا السابع. راجع الناتج دائماً على القواعد الخمس.</p>
+    <p class="fine" data-l="en">Word formats references from the data you enter, so incomplete data gives incomplete entries. Some versions of Word offer APA sixth edition, not the seventh. Always check the result against the five rules.</p>
   </div>
 
   <div class="box recall tpl-note">
