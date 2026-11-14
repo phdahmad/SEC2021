@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SEC2021 — تقرير مشروع التخرج: نسختان للتدريب على تنسيق وورد، صحيحة وفيها أخطاء، بالعربية والإنجليزية، مع مفتاح الأخطاء">
+<meta name="author" content="Dr. Ahmad Alhindi — Umm Al-Qura University">
+<meta name="color-scheme" content="light dark">
+<title>SEC2021 — ملفات تدريب مشروع التخرج</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  html[lang="ar"] [data-l="en"], html[lang="en"] [data-l="ar"]{display:none!important}
+
+  .wrap{max-width:1080px;margin-inline:auto;padding:var(--gap)}
+  .hero .eyebrow{display:block;margin-block-end:4px}
+  .hero h1{margin-block-end:12px}
+  .lead{font-size:1.06rem}
+
+  h2.sec{font-size:clamp(1.2rem,3vw,1.45rem);margin-block:34px 14px;display:flex;align-items:center;gap:10px}
+  h2.sec::before{content:"";inline-size:6px;block-size:1.1em;border-radius:3px;background:var(--amber-bright);flex:none}
+
+  /* قبل وبعد */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .compare figure{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .compare img{display:block;inline-size:100%;block-size:auto;background:#fff}
+  .compare figcaption{padding:10px 14px;font-size:.92rem;display:flex;align-items:center;gap:8px;border-block-start:1px solid var(--line)}
+  .tag{font-size:.78rem;font-weight:700;padding:2px 10px;border-radius:999px;flex:none}
+  .tag.ok{background:rgba(29,107,63,.12);color:var(--ok)}
+  .tag.no{background:rgba(163,34,51,.1);color:var(--no)}
+  html[data-theme="dark"] .tag.ok{background:rgba(95,208,140,.14)}
+  html[data-theme="dark"] .tag.no{background:rgba(255,139,150,.14)}
+
+  /* الخطوات */
+  .how{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:h}
+  .how li{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px 16px;counter-increment:h;position:relative}
+  .how li::before{content:counter(h);display:grid;place-items:center;inline-size:30px;block-size:30px;border-radius:50%;
+    background:var(--ink);color:#fff;font-family:var(--font-lat);font-weight:700;font-size:.9rem;margin-block-end:8px}
+  html[data-theme="dark"] .how li::before{color:#0E1926}
+  .how b{display:block;font-family:var(--font-ar-display);color:var(--ink-deep);margin-block-end:4px}
+  html[lang="en"] .how b{font-family:var(--font-lat)}
+  .how p{font-size:.92rem;color:var(--muted);line-height:1.75}
+
+  /* بطاقات التحميل */
+  .packs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .pack{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .pack > header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--panel);border-block-end:1px solid var(--line)}
+  .pack > header .lang{font-family:var(--font-ar-display);font-weight:700;font-size:1.12rem;color:var(--ink-deep)}
+  .pack > header .lang.en{font-family:var(--font-lat)}
+  .pack > header .meta{margin-inline-start:auto;font-size:.82rem;color:var(--muted)}
+  .item{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:14px 18px;border-block-end:1px solid var(--line)}
+  .item:last-child{border-block-end:0}
+  .item h3{font-size:1rem;margin:0}
+  html[lang="en"] .item h3{font-family:var(--font-lat)}
+  .item p{grid-column:1/-1;font-size:.88rem;color:var(--muted);line-height:1.7}
+  .dl{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .dl a{text-decoration:none;white-space:nowrap}
+  .dl .fmt{font-family:var(--font-lat);font-size:.74rem;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:5px;
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
+  .dl .btn:not(.btn-primary) .fmt{background:var(--panel);border-color:var(--line);color:var(--ink)}
+  .item.start{background:rgba(200,118,26,.07)}
+  html[data-theme="dark"] .item.start{background:rgba(228,160,80,.08)}
+  .start-flag{font-size:.74rem;font-weight:700;color:var(--amber);margin-inline-start:6px}
+
+  details.key summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;font-family:var(--font-ar-display);font-weight:700;font-size:1rem;color:var(--ink-deep)}
+  html[lang="en"] details.key summary{font-family:var(--font-lat)}
+  details.key summary::-webkit-details-marker{display:none}
+  details.key summary::after{content:"＋";margin-inline-start:auto;color:var(--muted);font-weight:400}
+  details.key[open] summary::after{content:"－"}
+  details.key .inner{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;margin-block-start:8px}
+  details.key .inner p{font-size:.88rem;color:var(--muted);line-height:1.7}
+
+  /* القالب */
+  .tpl{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--ink-deep);color:#fff;border-radius:var(--radius);padding:20px 22px}
+  html[data-theme="dark"] .tpl{background:var(--panel);color:var(--text)}
+  .tpl h3{color:inherit;font-size:1.15rem;margin-block-end:4px}
+  html[lang="en"] .tpl h3{font-family:var(--font-lat)}
+  .tpl p{color:inherit;opacity:.86;font-size:.93rem;line-height:1.75;max-inline-size:62ch}
+  .tpl .btn{margin-inline-start:auto;background:var(--amber-bright);border-color:var(--amber-bright);color:#16202E;text-decoration:none;font-weight:700}
+
+  .look{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;list-style:none;padding:0}
+  .look li{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:.92rem;line-height:1.7}
+  .look li b{color:var(--ink-deep)}
+
+  .back{margin-block:30px 6px;display:flex;gap:10px;flex-wrap:wrap}
+  .back a{text-decoration:none}
+
+  @media (max-width:860px){
+    .how{grid-template-columns:1fr 1fr}
+    .packs,.compare{grid-template-columns:1fr}
+    .look{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){
+    .how,.look{grid-template-columns:1fr}
+    .item,details.key .inner{grid-template-columns:1fr}
+    .dl{justify-content:flex-start}
+    .tpl .btn{margin-inline-start:0}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <a class="brand" href="index.html#/m7/w10">
+      <span class="code">SEC2021</span>
+      <span class="name"><span data-l="ar">مقدمة في الحوسبة والبرمجة الحاسوبية</span><span data-l="en">Introduction to Computing and Computer Programming</span></span>
+    </a>
+    <div class="header-actions">
+      <button class="btn btn-ghost btn-sm" id="langBtn" type="button">English</button>
+      <button class="btn btn-ghost btn-sm" id="themeBtn" type="button"><span aria-hidden="true">◐</span><span id="themeLabel">ليلي</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow"><span data-l="ar">وورد 10 · تقرير مشروع التخرج بنمط القسم</span><span data-l="en">Word 10 · The graduation project report in department style</span></span>
+    <h1><span data-l="ar">ابحث عن الخطأ: تقرير واحد في نسختين</span><span data-l="en">Spot the error: one report, two copies</span></h1>
+    <p class="lead" data-l="ar">هذا تقرير مشروع تخرج قصير عن قابلية استخدام تطبيق صحتي، كُتب مرتين بالمحتوى نفسه: نسخة تلتزم قالب القسم، ونسخة فيها أخطاء تنسيق مقصودة من النوع الذي يقع فيه الطلبة فعلاً. مهمتك أن تجد الأخطاء وتصحّحها في وورد، ثم تقارن عملك بالنسخة الصحيحة. والتقرير متاح بالعربية وبالإنجليزية، فتدرّب على اللغة التي ستكتب بها مشروعك.</p>
+    <p class="lead" data-l="en">This is a short graduation project report on the usability of the Sehhaty app, written twice with the same content: one copy follows the department template, the other contains deliberate formatting errors of the kind students actually make. Your task is to find and fix the errors in Word, then compare your work with the correct copy. The report comes in Arabic and in English, so practise in the language you will write your project in.</p>
+    <div class="meta">
+      <span class="chip"><span data-l="ar">عربي وإنجليزي</span><span data-l="en">Arabic and English</span></span>
+      <span class="chip"><span data-l="ar">تقرير من 10 صفحات</span><span data-l="en">A 10-page report</span></span>
+      <span class="chip amber"><span data-l="ar">25 خطأ في الإنجليزي و27 في العربي</span><span data-l="en">25 errors in English, 27 in Arabic</span></span>
+    </div>
+  </section>
+
+  <h2 class="sec"><span data-l="ar">الفرق بين النسختين</span><span data-l="en">How the two copies differ</span></h2>
+  <div class="compare" data-l="ar">
+    <figure><img src="images/sec2021-gp-g-ar.webp" width="640" height="514" loading="lazy" alt="صفحة النتائج في النسخة الصحيحة: الجدول بثلاثة خطوط أفقية، وتسميته فوقه، ويبدأ من اليمين">
+      <figcaption><span class="tag ok">صحيح</span>التسمية فوق الجدول، وثلاثة خطوط أفقية فقط، والجدول يبدأ من اليمين.</figcaption></figure>
+    <figure><img src="images/sec2021-gp-b-ar.webp" width="640" height="514" loading="lazy" alt="الصفحة نفسها في نسخة الأخطاء: جدول بكل الحدود يبدأ من اليسار، وتسميته تحته، ورقم بالأرقام الهندية">
+      <figcaption><span class="tag no">فيه أخطاء</span>كل الحدود، والجدول يبدأ من اليسار، والتسمية تحته، ورقم بالأرقام الهندية.</figcaption></figure>
+  </div>
+  <div class="compare" data-l="en">
+    <figure><img src="images/sec2021-gp-g-en.webp" width="640" height="514" loading="lazy" alt="The Results page in the correct copy: caption above the table and three horizontal rules">
+      <figcaption><span class="tag ok">Correct</span>Caption above the table, three horizontal rules, title in italics.</figcaption></figure>
+    <figure><img src="images/sec2021-gp-b-en.webp" width="640" height="514" loading="lazy" alt="The same page in the copy with errors: full grid, caption below the table, Arabic-Indic digits in an English sentence">
+      <figcaption><span class="tag no">With errors</span>Full grid, caption typed below, a wrong table number, and Arabic-Indic digits.</figcaption></figure>
+  </div>
+
+  <h2 class="sec"><span data-l="ar">طريقة التدريب</span><span data-l="en">How to practise</span></h2>
+  <ol class="how">
+    <li><b><span data-l="ar">حمّل نسخة الأخطاء</span><span data-l="en">Download the copy with errors</span></b>
+      <p data-l="ar">بلغة مشروعك، وافتحها في وورد. لا تفتح النسخة الصحيحة بعد.</p>
+      <p data-l="en">In your project's language, and open it in Word. Do not open the correct copy yet.</p></li>
+    <li><b><span data-l="ar">افحص قبل أن تصحّح</span><span data-l="en">Inspect before you fix</span></b>
+      <p data-l="ar">فعّل «جزء التنقل» من «عرض»، وعلامات التنسيق ¶ بـ Ctrl + Shift + 8، وانظر نمط كل فقرة.</p>
+      <p data-l="en">Turn on the Navigation Pane from View, formatting marks with Ctrl + Shift + 8, and check each paragraph's style.</p></li>
+    <li><b><span data-l="ar">صحّح بالأدوات الصحيحة</span><span data-l="en">Fix with the right tools</span></b>
+      <p data-l="ar">بالأنماط والتسميات التوضيحية وجدول المحتويات، لا بالمسافات والأسطر الفارغة.</p>
+      <p data-l="en">With styles, captions, and the table of contents, not with spaces and empty lines.</p></li>
+    <li><b><span data-l="ar">قارن وعُدّ</span><span data-l="en">Compare and count</span></b>
+      <p data-l="ar">قارن ملفك بالنسخة الصحيحة، ثم افتح مفتاح الأخطاء وعُدّ كم خطأ وجدت.</p>
+      <p data-l="en">Compare your file with the correct copy, then open the answer key and count how many you found.</p></li>
+  </ol>
+
+  <h2 class="sec"><span data-l="ar">الملفات</span><span data-l="en">The files</span></h2>
+  <div class="packs">
+
+    <article class="pack">
+      <header><span class="lang">العربية</span><span class="meta"><span data-l="ar">27 خطأ</span><span data-l="en">27 errors</span></span></header>
+      <div class="item start">
+        <h3><span data-l="ar">النسخة بأخطاء</span><span data-l="en">Copy with errors</span><span class="start-flag"><span data-l="ar">ابدأ من هنا</span><span data-l="en">Start here</span></span></h3>
+        <div class="dl"><a class="btn btn-primary btn-sm" href="files/graduation-project/sample-report-errors-ar.docx" download="تقرير نموذجي بأخطاء - عربي.docx"><span class="fmt">DOCX</span><span data-l="ar">تحميل</span><span data-l="en">Download</span></a></div>
+        <p data-l="ar">فيها أخطاء خاصة بالعربية أيضاً: اتجاه الفقرة والجدول، والأرقام الهندية، والمراجع الإنجليزية في فقرات اتجاهها من اليمين.</p>
+        <p data-l="en">Includes errors specific to Arabic: paragraph and table direction, Arabic-Indic digits, and English references in right-to-left paragraphs.</p>
+      </div>
+      <div class="item">
+        <h3><span data-l="ar">النسخة الصحيحة</span><span data-l="en">Correct copy</span></h3>
+        <div class="dl">
+          <a class="btn btn-sm" href="files/graduation-project/sample-report-correct-ar.docx" download="تقرير نموذجي صحيح - عربي.docx"><span class="fmt">DOCX</span></a>
+          <a class="btn btn-sm" href="files/graduation-project/sample-report-correct-ar.pdf" target="_blank" rel="noopener"><span class="fmt">PDF</span></a>
+        </div>
+        <p data-l="ar">خط Sakkal Majalla بحجم 16، وتباعد 1.5، وفقرات مضبوطة الحافتين.</p>
+        <p data-l="en">Sakkal Majalla 16, 1.5 line spacing, justified paragraphs.</p>
+      </div>
+      <div class="item">
+        <details class="key">
+          <summary><span data-l="ar">مفتاح الأخطاء</span><span data-l="en">Answer key</span></summary>
+          <div class="inner">
+            <p data-l="ar">افتحه بعد أن تنهي محاولتك: كل خطأ وموضعه وتصحيحه، ورقم الخطوة في وحدة وورد 10.</p>
+            <p data-l="en">Open it after your attempt: each error, where it is, how to fix it, and the Word 10 step that covers it.</p>
+            <div class="dl"><a class="btn btn-sm" href="files/graduation-project/answer-key-ar.pdf" target="_blank" rel="noopener"><span class="fmt">PDF</span></a></div>
+          </div>
+        </details>
+      </div>
+    </article>
+
+    <article class="pack">
+      <header><span class="lang en">English</span><span class="meta"><span data-l="ar">25 خطأ</span><span data-l="en">25 errors</span></span></header>
+      <div class="item start">
+        <h3><span data-l="ar">النسخة بأخطاء</span><span data-l="en">Copy with errors</span><span class="start-flag"><span data-l="ar">ابدأ من هنا</span><span data-l="en">Start here</span></span></h3>
+        <div class="dl"><a class="btn btn-primary btn-sm" href="files/graduation-project/sample-report-errors-en.docx" download="Sample report with errors - English.docx"><span class="fmt">DOCX</span><span data-l="ar">تحميل</span><span data-l="en">Download</span></a></div>
+        <p data-l="ar">بقالب القسم بأسلوب APA 7، كما ستكتب مشروعك بالإنجليزية.</p>
+        <p data-l="en">In the department's APA 7 template, as you will write your project in English.</p>
+      </div>
+      <div class="item">
+        <h3><span data-l="ar">النسخة الصحيحة</span><span data-l="en">Correct copy</span></h3>
+        <div class="dl">
+          <a class="btn btn-sm" href="files/graduation-project/sample-report-correct-en.docx" download="Sample report correct - English.docx"><span class="fmt">DOCX</span></a>
+          <a class="btn btn-sm" href="files/graduation-project/sample-report-correct-en.pdf" target="_blank" rel="noopener"><span class="fmt">PDF</span></a>
+        </div>
+        <p data-l="ar">Times New Roman بحجم 12، وتباعد مزدوج، ومحاذاة لليسار كما يطلب APA 7.</p>
+        <p data-l="en">Times New Roman 12, double spacing, left-aligned as APA 7 requires.</p>
+      </div>
+      <div class="item">
+        <details class="key">
+          <summary><span data-l="ar">مفتاح الأخطاء</span><span data-l="en">Answer key</span></summary>
+          <div class="inner">
+            <p data-l="ar">افتحه بعد أن تنهي محاولتك: كل خطأ وموضعه وتصحيحه، ورقم الخطوة في وحدة وورد 10.</p>
+            <p data-l="en">Open it after your attempt: each error, where it is, how to fix it, and the Word 10 step that covers it.</p>
+            <div class="dl"><a class="btn btn-sm" href="files/graduation-project/answer-key-en.pdf" target="_blank" rel="noopener"><span class="fmt">PDF</span></a></div>
+          </div>
+        </details>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="sec"><span data-l="ar">أين تبحث؟</span><span data-l="en">Where to look</span></h2>
+  <ul class="look">
+    <li data-l="ar"><b>الصفحة والغلاف:</b> الهوامش، ورأس الصفحة ورقمها، والغلاف بلا رقم.</li>
+    <li data-l="ar"><b>الأنماط والعناوين:</b> عناوين منسّقة باليد، وفقرات ملصوقة بخط آخر.</li>
+    <li data-l="ar"><b>جدول المحتويات:</b> تلقائي يتحدّث، أم مكتوب باليد؟</li>
+    <li data-l="ar"><b>الجداول والأشكال:</b> موضع التسمية، والحدود، والإحالة إليها.</li>
+    <li data-l="ar"><b>الاقتباسات والمراجع:</b> صيغة APA، والترتيب، والمسافة المعلّقة.</li>
+    <li data-l="ar"><b>الاتجاه والأرقام:</b> اتجاه كل فقرة، ونوع الأرقام.</li>
+    <li data-l="en"><b>Page and title page:</b> margins, the page header and number, no number on the title page.</li>
+    <li data-l="en"><b>Styles and headings:</b> hand-formatted headings, paragraphs pasted in another font.</li>
+    <li data-l="en"><b>Table of contents:</b> automatic and updatable, or typed by hand?</li>
+    <li data-l="en"><b>Tables and figures:</b> where the caption sits, borders, cross-references.</li>
+    <li data-l="en"><b>Citations and references:</b> APA format, order, and hanging indent.</li>
+    <li data-l="en"><b>Direction and digits:</b> each paragraph's direction and the kind of digits.</li>
+  </ul>
+
+  <h2 class="sec"><span data-l="ar">لمشروعك أنت</span><span data-l="en">For your own project</span></h2>
+  <div class="tpl">
+    <div>
+      <h3><span data-l="ar">قالب القسم (نسخة الطلبة)</span><span data-l="en">The department template (student copy)</span></h3>
+      <p data-l="ar">ابدأ تقريرك منه: الأنماط جاهزة، والغلاف بلا رقم، وجدول المحتويات تلقائي، والتسميات والمراجع مضبوطة. اكتب في القالب، ودع الأنماط تحفظ الشكل.</p>
+      <p data-l="en">Start your report from it: styles ready, no number on the title page, an automatic table of contents, captions and references set up. Write in the template and let the styles keep the look.</p>
+    </div>
+    <a class="btn" href="files/SEC2021-graduation-project-template-APA7.docx" download="SEC2021 graduation project template APA 7.docx"><span class="fmt" style="font-family:var(--font-lat);font-size:.74rem">DOCX</span><span data-l="ar">حمّل القالب</span><span data-l="en">Download the template</span></a>
+  </div>
+
+  <div class="box recall" style="margin-block-start:26px">
+    <span class="label"><span data-l="ar">تنبيه</span><span data-l="en">Note</span></span>
+    <p data-l="ar">البيانات في التقرير توضيحية أُعدّت للتدريب، والمراجع حقيقية. وإن ظهر رقم في جدول المحتويات لا يطابق الصفحة عندك، فحدّث الجدول بالمفتاح F9: فالخطوط تختلف من جهاز لآخر.</p>
+    <p data-l="en">The data in the report are illustrative and prepared for training; the references are real. If a page number in the table of contents does not match on your machine, update the table with F9: fonts differ between machines.</p>
+  </div>
+
+  <div class="back">
+    <a class="btn btn-primary" href="index.html#/m7/w10"><span data-l="ar">وحدة وورد 10: الخطوات بالتفصيل</span><span data-l="en">Word 10 unit: the steps in detail</span></a>
+    <a class="btn" href="index.html#/m7"><span data-l="ar">مسار وورد</span><span data-l="en">The Word track</span></a>
+  </div>
+</main>
+
+<footer class="site">
+  <p><a href="index.html#/about"><span data-l="ar">SEC2021 · جامعة أم القرى — إعداد وإشراف علمي: د. أحمد الهندي · رخصة CC BY 4.0</span><span data-l="en">SEC2021 · Umm Al-Qura University — Prepared by Dr. Ahmad Alhindi · CC BY 4.0</span></a></p>
+</footer>
+
+<script>
+(function () {
+  var KEY = "sec2021-progress-v1", st = {};
+  try { st = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { st = {}; }
+  var q = new URLSearchParams(location.search);
+  if (q.get("lang") === "en" || q.get("lang") === "ar") st.lang = q.get("lang");
+  function save() { try { var cur = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; cur.lang = st.lang; cur.theme = st.theme; localStorage.setItem(KEY, JSON.stringify(cur)); } catch (e) {} }
+  function apply() {
+    var en = st.lang === "en", h = document.documentElement;
+    h.lang = en ? "en" : "ar"; h.dir = en ? "ltr" : "rtl";
+    h.setAttribute("data-theme", st.theme === "dark" ? "dark" : "light");
+    document.getElementById("langBtn").textContent = en ? "العربية" : "English";
+    document.getElementById("themeLabel").textContent = st.theme === "dark" ? (en ? "Light" : "نهاري") : (en ? "Dark" : "ليلي");
+    document.title = en ? "SEC2021 — Graduation project practice files" : "SEC2021 — ملفات تدريب مشروع التخرج";
+  }
+  document.getElementById("langBtn").addEventListener("click", function () { st.lang = st.lang === "en" ? "ar" : "en"; save(); apply(); });
+  document.getElementById("themeBtn").addEventListener("click", function () { st.theme = st.theme === "dark" ? "light" : "dark"; save(); apply(); });
+  apply();
+})();
+</script>
+</body>
+</html>
